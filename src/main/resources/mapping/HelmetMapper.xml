@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.hziee.peisp.mapper.HelmetMapper">
+  <resultMap id="BaseResultMap" type="cn.edu.hziee.peisp.entity.Helmet">
+    <!--@mbg.generated-->
+    <!--@Table helmet-->
+    <id column="helmet_id" jdbcType="INTEGER" property="helmetId" />
+    <result column="worker_id" jdbcType="INTEGER" property="workerId" />
+    <result column="rest_electric" jdbcType="INTEGER" property="restElectric" />
+    <result column="produced_time" jdbcType="TIMESTAMP" property="producedTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    helmet_id, worker_id, rest_electric, produced_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from helmet
+    where helmet_id = #{helmetId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from helmet
+    where helmet_id = #{helmetId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="helmet_id" keyProperty="helmetId" parameterType="cn.edu.hziee.peisp.entity.Helmet" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into helmet (worker_id, rest_electric, produced_time
+      )
+    values (#{workerId,jdbcType=INTEGER}, #{restElectric,jdbcType=INTEGER}, #{producedTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="helmet_id" keyProperty="helmetId" parameterType="cn.edu.hziee.peisp.entity.Helmet" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into helmet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="workerId != null">
+        worker_id,
+      </if>
+      <if test="restElectric != null">
+        rest_electric,
+      </if>
+      <if test="producedTime != null">
+        produced_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="workerId != null">
+        #{workerId,jdbcType=INTEGER},
+      </if>
+      <if test="restElectric != null">
+        #{restElectric,jdbcType=INTEGER},
+      </if>
+      <if test="producedTime != null">
+        #{producedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.hziee.peisp.entity.Helmet">
+    <!--@mbg.generated-->
+    update helmet
+    <set>
+      <if test="workerId != null">
+        worker_id = #{workerId,jdbcType=INTEGER},
+      </if>
+      <if test="restElectric != null">
+        rest_electric = #{restElectric,jdbcType=INTEGER},
+      </if>
+      <if test="producedTime != null">
+        produced_time = #{producedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where helmet_id = #{helmetId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.hziee.peisp.entity.Helmet">
+    <!--@mbg.generated-->
+    update helmet
+    set worker_id = #{workerId,jdbcType=INTEGER},
+      rest_electric = #{restElectric,jdbcType=INTEGER},
+      produced_time = #{producedTime,jdbcType=TIMESTAMP}
+    where helmet_id = #{helmetId,jdbcType=INTEGER}
+  </update>
+</mapper>
