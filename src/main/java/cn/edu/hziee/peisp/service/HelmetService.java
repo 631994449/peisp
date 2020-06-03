@@ -4,7 +4,10 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import cn.edu.hziee.peisp.entity.Helmet;
 import cn.edu.hziee.peisp.mapper.HelmetMapper;
+import org.springframework.transaction.annotation.Transactional;
+
 @Service
+@Transactional
 public class HelmetService{
 
     @Resource
