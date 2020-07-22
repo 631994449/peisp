@@ -12,9 +12,7 @@ public class HelmetController {
     @Autowired
     HelmetService helmetService;
     @RequestMapping("/index")
-    @ResponseBody
     public String hahaha(){
-        Helmet helmet = new Helmet();
-        return helmet.toString();
+        return "index";
     }
 }
