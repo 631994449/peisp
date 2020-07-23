@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="ie9 no-focus"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-focus">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+
+    <title>PEISP管理系统</title>
+
+    <meta name="description" content="OneUI - Admin Dashboard Template & UI Framework">
+    <meta name="author" content="pixelcave">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="/img/favicons/favicon.png">
+
+    <link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/img/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/img/favicons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/img/favicons/favicon-192x192.png" sizes="192x192">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/img/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon-180x180.png">
+    <!-- END Icons -->
+
+    <!-- Stylesheets -->
+    <!-- Web fonts -->
+    <link rel="stylesheet"
+        href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
+
+
+    <!-- Page JS Plugins CSS -->
+    <link rel="stylesheet" href="/js/plugins/slick/slick.min.css">
+    <link rel="stylesheet" href="/js/plugins/slick/slick-theme.min.css">
+
+    <!-- OneUI CSS framework -->
+    <link rel="stylesheet" id="css-main" href="/css/oneui.css">
+    <!-- 覆盖oneui全局设置 -->
+	
+    <link rel="stylesheet" id="css-main" href="/css/peisp-extra.css">
+    <!-- 调用现有样式主题 -->
+    <link rel="stylesheet" id="css-theme" href="/css/themes/flat.min.css">
+</head>
+
+<body>
+    <!-- Page Container -->
+    <!--
+            Available Classes:
+
+            'sidebar-l'                  Left Sidebar and right Side Overlay
+            'sidebar-r'                  Right Sidebar and left Side Overlay
+            'sidebar-mini'               Mini hoverable Sidebar (> 991px)
+            'sidebar-o'                  Visible Sidebar by default (> 991px)
+            'sidebar-o-xs'               Visible Sidebar by default (< 992px)
+
+            'side-overlay-hover'         Hoverable Side Overlay (> 991px)
+            'side-overlay-o'             Visible Side Overlay by default (> 991px)
+
+            'side-scroll'                Enables custom scrolling on Sidebar and Side Overlay instead of native scrolling (> 991px)
+
+            'header-navbar-fixed'        Enables fixed header
+        -->
+    <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <!-- Sidebar Scroll Container -->
+            <div id="sidebar-scroll">
+                <!-- Sidebar Content -->
+                <!-- Adding .sidebar-mini-hide to an element will hide it when the sidebar is in mini mode -->
+                <div class="sidebar-content">
+                        <!-- Side Header -->
+                        <div class="side-header side-content bg-white-op">
+                            <a class="h5 text-white" href="index.html"> 
+								<em class="fa fa-puzzle-piece text-primary"></em> 
+							<span class="h4 font-w600 sidebar-mini-hide">PEISP</span> 
+							</a>
+						</div>
+                        <!-- END Side Header -->
+
+                        <!-- 导航栏-->
+                        <div class="side-content">
+                            <ul class="nav-main">
+								<li>
+                                    <a href="index.html" class="active"><i class="si si-briefcase"></i><span class="sidebar-mini-hide">PEISP主页</span></a>
+                                </li>
+								<li>
+                                    <a href="dash_board.html"><i class="si si-bar-chart"></i><span class="sidebar-mini-hide">企业主页</span></a>
+                                </li>
+								<li ><a class="nav-submenu" data-toggle="nav-submenu" href="#"><em class="si si-camcorder"></em><span class="sidebar-mini-hide">&nbsp;&nbsp;&nbsp;&nbsp;实时监控</span></a>
+								  <ul>
+                                        <li>
+                                            <a class="nav-submenu" data-toggle="nav-submenu" href="#">工厂A</a>
+                                            <ul >
+                                                <li>
+                                                    <a href="/CameraPage">车间a</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">车间b</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a class="nav-submenu" data-toggle="nav-submenu" href="#">工厂B</a>
+                                           	<ul>
+                                                <li>
+                                                    <a href="#">车间a</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">车间b</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a class="nav-submenu" data-toggle="nav-submenu" href="#">工厂C</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">车间a</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">车间b</a>
+                                                </li>
+												<li>
+                                                    <a href="#">车间c</a>
+                                                </li>
+												<li>
+                                                    <a href="#">车间d</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="nav-submenu" data-toggle="nav-submenu" href="worker_info.html"><i class="si si-grid"></i><span class="sidebar-mini-hide">员工列表</span></a>
+                                    <ul>
+                                        <li>
+                                            <a class="active" href="#">所有员工</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">添加员工</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="helmet_info.html"><i class="si si-wrench"></i>
+										<span class="sidebar-mini-hide">安全帽列表</span></a>
+                                </li>
+								<li>
+                                    <a href="monitor_history.html"><i class="si si-note"></i>
+										<span class="sidebar-mini-hide">违规记录列表</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- END 导航栏 -->
+                    </div>
+                <!-- Sidebar Content -->
+            </div>
+            <!-- END Sidebar Scroll Container -->
+        </nav>
+        <!-- END Sidebar -->
+
+        <!-- Header -->
+        <header id="header-navbar" class="content-mini content-mini-full bg-head">
+            <!-- Header Navigation Right -->
+            
+            <!-- END Header Navigation Right -->
+
+            <!-- Header Navigation Left -->
+            <ul class="nav-header pull-left">
+                <li class="hidden-md hidden-lg">
+                    <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
+                    <button class="btn btn-default" data-toggle="layout" data-action="sidebar_toggle" type="button">
+                        <i class="fa fa-navicon"></i>
+                    </button>
+                </li>
+               
+                
+                <li class="visible-xs">
+                    <!-- Toggle class helper (for .js-header-search below), functionality initialized in App() -> uiToggleClass() -->
+                    <button class="btn btn-default" data-toggle="class-toggle" data-target=".js-header-search"
+                        data-class="header-search-xs-visible" type="button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </li>
+                <li class="js-header-search header-search">
+                    <form class="form-horizontal" action="base_pages_search.html" method="post">
+                        <div class="form-material form-material-primary input-group remove-margin-t remove-margin-b">
+                            <input class="form-control" type="text" id="base-material-text" name="base-material-text"
+                                placeholder="Search..">
+                            <span class="input-group-addon"><i class="si si-magnifier"></i></span>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+            <!-- END Header Navigation Left -->
+        </header>
+        <!-- END Header -->
+
+        <!-- Main Container -->
+        <main id="main-container">
+            <!-- Page 1 -->
+            <div class="content bg-image overflow-hidden bg-one">
+                <div class="row full-height">
+						<div class="col-lg-8 full-height">
+							<div class="title-slide">
+								<h3 class="h3 animated zoomIn">在线安全保障人数</h3>
+								<h6 class="h6 animated zoomIn">欢迎使用PEISP系统</h6>
+							</div>
+							<div id="echarts-con-1" class="echarts-con"></div>
+						</div>
+						<div class="col-lg-4 full-height">
+							<div class="title-slide">
+								<h3 class="h3 animated zoomIn">违规事件发生率</h3>
+								<h6 class="h6 animated zoomIn">欢迎使用PEISP系统</h6>
+							</div>
+							<div id="echarts-con-2" class="echarts-con"></div>
+						</div>
+                </div>
+            </div>
+            <!-- END Page 1 -->
+            <!-- Page 2 -->
+            <div class="content bg-image overflow-hidden bg-tow">
+                <!--  <div class="push-50-t push-15"></div> -->
+                <div class="row full-height">
+                    <div class="col-lg-8 full-height">
+                        <div class="title-slide">
+                            <h3 class="h3 animated zoomIn">周员工上勤分布</h3>
+                            <h6 class="h6 animated zoomIn">欢迎使用PEISP系统</h6>
+                        </div>
+                        <div id="echarts-con-3" class="echarts-con"></div>
+                    </div>
+                    <div class="col-lg-4 full-height">
+                        <div class="title-slide">
+                            <h3 class="h3 animated zoomIn">全国设备监视</h3>
+                            <h6 class="h6 animated zoomIn">欢迎使用PEISP系统</h6>
+                        </div>
+                        <div id="echarts-con-4" class="echarts-con"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- END Page 2 -->
+
+            <div class="slide-content">
+                <div class="btn-slideToggle text-center">= =</div>
+            </div>
+            <!-- Stats -->
+            <div class="content bg-white border-b">
+                <div class="row items-push text-uppercase">
+                    <div class="col-xs-6 col-sm-3">
+                        <div class="font-w700 text-gray-darker animated fadeIn">违规人员人数</div>
+                        <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> 当日</small>
+                        </div>
+                        <a class="h2 font-w300 text-primary animated flipInX" href="base_comp_charts.html">300</a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <div class="font-w700 text-gray-darker animated fadeIn">违规人员人数</div>
+                        <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> 当月</small>
+                        </div>
+                        <a class="h2 font-w300 text-primary animated flipInX" href="base_comp_charts.html">8,790</a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <div class="font-w700 text-gray-darker animated fadeIn">出勤率</div>
+                        <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i>当日</small>
+                        </div>
+                        <a class="h2 font-w300 text-primary animated flipInX" href="base_comp_charts.html">98 %</a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <div class="font-w700 text-gray-darker animated fadeIn">缺勤人数</div>
+                        <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i>当日</small>
+                        </div>
+                        <a class="h2 font-w300 text-primary animated flipInX" href="base_comp_charts.html">20</a>
+                    </div>
+                </div>
+            </div>
+            <!-- END Stats -->
+
+            <!-- Page Content -->
+            <div class="content bg-white">
+                <div class="block">
+                    <div>
+                        <table class="table table-striped">
+                            <tr>
+                                <th>h1</th>
+                                <th>h2</th>
+                                <th>h3</th>
+                                <th>h4</th>
+                            </tr>
+                            <tr>
+                                <td>sth1</td>
+                                <td>sth2</td>
+                                <td>sth3</td>
+                                <td>sth4</td>
+                            </tr>
+                            <tr>
+                                <td>sth1</td>
+                                <td>sth2</td>
+                                <td>sth3</td>
+                                <td>sth4</td>
+                            </tr>
+                            <tr>
+                                <td>sth1</td>
+                                <td>sth2</td>
+                                <td>sth3</td>
+                                <td>sth4</td>
+                            </tr>
+                            <tr>
+                                <td>sth1</td>
+                                <td>sth2</td>
+                                <td>sth3</td>
+                                <td>sth4</td>
+                            </tr>
+                            <tr>
+                                <td>sth1</td>
+                                <td>sth2</td>
+                                <td>sth3</td>
+                                <td>sth4</td>
+                            </tr>
+                            <tr>
+                                <td>sth1</td>
+                                <td>sth2</td>
+                                <td>sth3</td>
+                                <td>sth4</td>
+                            </tr>
+                            <tr>
+                                <td>sth1</td>
+                                <td>sth2</td>
+                                <td>sth3</td>
+                                <td>sth4</td>
+                            </tr>
+                            <tr>
+                                <td>sth1</td>
+                                <td>sth2</td>
+                                <td>sth3</td>
+                                <td>sth4</td>
+                            </tr>
+                        </table>
+                        <div>
+
+                        </div>
+                    </div>
+                    <!-- END Page Content -->
+        </main>
+        <!-- END Main Container -->
+
+        <!-- Footer -->
+        <footer id="page-footer" class="content-mini content-mini-full font-s12 bg-gray-lighter clearfix">
+            <div class="pull-right">
+                Crafted with <i class="fa fa-heart text-city"></i> by <a class="font-w600" href=""
+                    target="_blank">pixelcave</a>
+            </div>
+            <div class="pull-left">
+                <a class="font-w600" href="javascript:void(0)" target="_blank">OneUI 1.0</a> &copy; <span
+                    class="js-year-copy"></span>
+            </div>
+        </footer>
+        <!-- END Footer -->
+    </div>
+    <!-- END Page Container -->
+
+    <!-- Apps Modal -->
+    <!-- Opens from the button in the header -->
+    <div class="modal fade" id="apps-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-sm modal-dialog modal-dialog-top">
+            <div class="modal-content">
+                <!-- Apps Block -->
+                <div class="block block-themed block-transparent">
+                    <div class="block-header bg-primary-dark">
+                        <ul class="block-options">
+                            <li>
+                                <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
+                            </li>
+                        </ul>
+                        <h3 class="block-title">Apps</h3>
+                    </div>
+                    <div class="block-content">
+                        <div class="row text-center">
+                            <div class="col-xs-6">
+                                <a class="block block-rounded" href="index.html">
+                                    <div class="block-content text-white bg-default">
+                                        <i class="si si-speedometer fa-2x"></i>
+                                        <div class="font-w600 push-15-t push-15">Backend</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xs-6">
+                                <a class="block block-rounded" href="frontend_home.html">
+                                    <div class="block-content text-white bg-modern">
+                                        <i class="si si-rocket fa-2x"></i>
+                                        <div class="font-w600 push-15-t push-15">Frontend</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Apps Block -->
+            </div>
+        </div>
+    </div>
+    <!-- END Apps Modal -->
+
+    <!-- OneUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
+    <script src="/js/core/jquery.min.js"></script>
+    <script src="/js/core/bootstrap.min.js"></script>
+    <script src="/js/core/jquery.slimscroll.min.js"></script>
+    <script src="/js/core/jquery.scrollLock.min.js"></script>
+    <script src="/js/core/jquery.appear.min.js"></script>
+    <script src="/js/core/jquery.countTo.min.js"></script>
+    <script src="/js/core/jquery.placeholder.min.js"></script>
+    <script src="/js/core/js.cookie.min.js"></script>
+    <script src="/js/app.js"></script>
+
+    <!-- Page JS Plugins -->
+    <!-- <script src="/js/plugins/slick/slick.min.js"></script> -->
+    <!-- <script src="/js/plugins/chartjs/Chart.min.js"></script>
+    <script src="/js/plugins/easy-pie-chart/jquery.easypiechart.min.js"></script> -->
+
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=53oVIOgmSIejwV7EfphPgTynOZbIiVYu"></script>
+    <script src="/js/extra/gradientify/jquery.gradientify.min.js"></script>
+
+    <!-- 地图相关 -->
+    <script src="/js/echart/echarts.min.js"></script>
+    <script src="/js/echart/geoCoordMap.js"></script>
+    <script src="/js/echart/echartsOptions.js"></script>
+    <script src="/js/echart/bmap.min.js"></script>
+
+    <!-- Page JS Code -->
+    <!-- <script src="/js/pages/base_pages_dashboard.js"></!--> -->
+
+
+    <style>
+        /* 去除百度logo */
+        .anchorBL {
+            display: none;
+        }
+
+        .full-height {
+            height: 100%;
+        }
+
+        .bg-one {
+            height: 400px;
+        }
+
+        .bg-tow {
+            height: 350px;
+        }
+
+        .title-slide {
+            border-left: 8px #40968D solid;
+            padding-left: 10px;
+        }
+
+        #echarts-con-1,
+        #echarts-con-2,
+        #echarts-con-3,
+        #echarts-con-4 {
+            height: 80%;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $(".bg-one,.bg-head").gradientify({
+                gradients: [
+                    { start: [245,247,247], stop: [245,247,247] },
+                    { start: [245,247,247], stop: [245,247,247] }
+                ],
+                angle: 45,
+                transition_time: 1
+            });
+
+            $(".bg-tow").gradientify({
+                gradients: [
+                    { start: [245,247,247], stop: [245,247,247] },
+                    { start: [245,247,247], stop: [245,247,247] }
+                ],
+                angle: 60,
+                transition_time: 1
+            });
+
+            $(".btn-slideToggle").click(function () {
+                $('.bg-one').slideToggle(1000);
+                $('.bg-tow').slideToggle(1000);
+            })
+
+            //事故分布率
+            var chart = document.getElementById("echarts-con-2");
+            var echart2 = echarts.init(chart);
+
+
+            //员工分布
+            var chart = document.getElementById("echarts-con-3");
+            var echart3 = echarts.init(chart);
+
+            //全国分布
+            var chart = document.getElementById("echarts-con-4");
+            var echart4 = echarts.init(chart);
+
+            //在线人数
+            var chart = document.getElementById("echarts-con-1");
+            var echart1 = echarts.init(chart);
+
+            var data = [];
+            var now = +new Date(2020, 9, 3);
+            var oneDay = 24 * 3600 * 1000;
+            var value = Math.random() * 1000;
+            for (var i = 0; i < 200; i++) {
+                data.push(randomData());
+            }
+
+            function randomData() {
+                now = new Date(+now + oneDay);
+                value = value + Math.random() * 21 - 10;
+                return {
+                    name: now.toString(),
+                    value: [
+                        [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
+                        Math.round(value)
+                    ]
+                }
+            }
+
+            /* 地图信息 */
+            var mapData = [
+                { name: '曲靖', value: 27 },
+                { name: '大连', value: 47 },
+                { name: '临汾', value: 47 },
+                { name: '吴江', value: 47 },
+                { name: '石嘴山', value: 49 },
+                { name: '克拉玛依', value: 72 },
+                { name: '渭南', value: 72 },
+                { name: '马鞍山', value: 72 },
+                { name: '宝鸡', value: 72 },
+                { name: '焦作', value: 75 },
+                { name: '句容', value: 75 },
+                { name: '北京', value: 79 },
+                { name: '徐州', value: 79 },
+                { name: '衡水', value: 80 },
+                { name: '包头', value: 80 },
+                { name: '绵阳', value: 80 },
+                { name: '秦皇岛', value: 136 },
+                { name: '株洲', value: 143 },
+                { name: '石家庄', value: 147 },
+                { name: '莱芜', value: 148 },
+                { name: '常德', value: 152 },
+                { name: '保定', value: 153 },
+                { name: '湘潭', value: 154 },
+                { name: '金华', value: 157 },
+                { name: '岳阳', value: 169 },
+                { name: '长沙', value: 175 },
+                { name: '衢州', value: 177 },
+                { name: '廊坊', value: 193 },
+                { name: '菏泽', value: 194 },
+                { name: '合肥', value: 229 },
+                { name: '武汉', value: 273 },
+                { name: '大庆', value: 279 }
+            ];
+            var convertData = function (data) {
+                var res = [];
+                for (var i = 0; i < data.length; i++) {
+                    var geoCoord = geoCoordMap[data[i].name];
+                    if (geoCoord) {
+                        res.push({
+                            name: data[i].name,
+                            value: geoCoord.concat(data[i].value)
+                        });
+                    }
+                }
+                return res;
+            };
+            /* --地图信息 */
+
+
+            var option = {
+                tooltip: {
+                    trigger: 'axis',
+                    formatter: function (params) {
+                        params = params[0];
+                        var date = new Date(params.name);
+                        return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];
+                    },
+                    axisPointer: {
+                        type: "shadow",
+                        animation: false
+                    }
+                },
+                xAxis: {
+                    type: 'time',
+                    boundaryGap: false,
+                    splitLine: {
+                        show: false
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: 'rgb(128, 128, 128)'
+                        }
+                    },
+                    axisLabel: {
+                        fontWeight: 'bolder'
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    boundaryGap: false,
+                    splitLine: {
+                        show: false
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: 'rgb(128, 128, 128)'
+                        }
+                    },
+                    axisLabel: {
+                        fontWeight: 'bolder'
+                    }
+                },
+                series: [{
+                    type: 'line',
+                    label: {
+                        color: 'auto',
+                        fontWeight: 'bolder'
+                    },
+                    lineStyle: {
+                        // color: '#29FBBA',
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 0, color: '#29FBBA' // 0% 处的颜色
+                            }, {
+                                offset: 1, color: 'blue' // 100% 处的颜色
+                            }]
+                        },
+                        width: 5
+                    },
+                    areaStyle: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1,//变化度
+                            //三种由深及浅的颜色
+                            [{
+                                offset: 0,
+                                color: '#0C94A1'
+                            }, {
+                                offset: 0.5,
+                                color: '#0C94A1'
+                            }, {
+                                offset: 1,
+                                color: '#1C3A60'
+                            }]),
+                    },
+                    smooth: true,
+                    showSymbol: false,
+                    hoverAnimation: false,
+
+                    // z:2,
+                    data: data
+                }
+                    // , {
+                    //     type: 'bar',
+                    //     barCategoryGap: '-100%',
+                    //     showBackground: true,
+                    //     backgroundStyle: {
+                    //         color: 'red'
+                    //     },
+                    //     z:1,
+                    //     data: []
+                    // }
+                ]
+            };
+            var option2 = {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b}: {c} ({d}%)'
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: -10,
+                    textStyle: {
+                        color: '#666',
+                    },
+                    data: ['安全事件', '不规范事件', '严重事件', '特大严重事件']
+                },
+                series: [
+                    {
+                        name: "本月事故统计",
+                        type: 'pie',
+                        radius: ['45%', '80%'],
+                        avoidLabelOverlap: true,
+                        label: {
+                            show: false,
+                            position: 'center'
+                        },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                fontSize: '30',
+                                fontWeight: 'bold'
+                            }
+                        },
+                        itemStyle: {
+                            shadowBlur: 200,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            normal: {
+                                color: function (params) {
+                                    //自定义颜色
+                                    var colorList = [
+                                        '#99cc33', '#0b8793', '#9FFFBF', '#1a3558'
+                                    ];
+                                    return colorList[params.dataIndex]
+                                }
+                            }
+                        },
+                        data: [
+                            { value: 1548, name: '安全事件' },
+                            { value: 335, name: '不规范事件' },
+                            { value: 310, name: '严重事件' },
+                            { value: 234, name: '特大严重事件' }
+                        ]
+                    }
+                ]
+            };
+            var option3 = {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                legend: {
+                    data: ['缺勤', '迟到', '早退', '请假', '正常上岗'],
+
+                    textStyle: {
+                        color: '#666',
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    color: '#fff',
+                    type: 'value',
+
+                    axisLabel: {
+                        color: '#fff',
+                        fontWeight: 'bolder'
+                    }
+                },
+                yAxis: {
+                    type: 'category',
+                    data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+
+                    axisLabel: {
+                        color: '#fff',
+                        fontWeight: 'bolder'
+                    }
+                },
+                series: [
+                    {
+                        name: '缺勤',
+                        type: 'bar',
+                        stack: '总量',
+                        label: {
+                            show: true,
+                            position: 'insideRight'
+                        },
+                        data: [32, 32, 39, 33, 39, 33, 32]
+                    },
+                    {
+                        name: '迟到',
+                        type: 'bar',
+                        stack: '总量',
+                        label: {
+                            show: true,
+                            position: 'insideRight'
+                        },
+                        data: [120, 132, 101, 134, 90, 230, 210]
+                    },
+                    {
+                        name: '早退',
+                        type: 'bar',
+                        stack: '总量',
+                        label: {
+                            show: true,
+                            position: 'insideRight'
+                        },
+                        data: [220, 182, 191, 234, 290, 330, 310]
+                    },
+                    {
+                        name: '请假',
+                        type: 'bar',
+                        stack: '总量',
+                        label: {
+                            show: true,
+                            position: 'insideRight'
+                        },
+                        data: [150, 212, 201, 154, 190, 330, 410]
+                    },
+                    {
+                        name: '正常上岗',
+                        type: 'bar',
+                        stack: '总量',
+                        label: {
+                            show: true,
+                            position: 'insideRight'
+                        },
+                        data: [820, 832, 901, 934, 1290, 1330, 1320]
+                    }
+                ]
+            };
+            var option4 = {
+                tooltip: {
+                    trigger: 'item'
+                },
+                bmap: {
+                    center: [104.114129, 37.550339],
+                    zoom: 1,
+                    roam: false,
+                    mapStyle: {
+                        styleJson: [{
+                            "featureType": "water",
+                            "elementType": "all",
+                            "stylers": {
+                                "color": "#ffffff"
+                            }
+                        }, {
+                            "featureType": "land",
+                            "elementType": "all",
+                            "stylers": {
+                                "color": "#ffffff"
+                            }
+                        }, {
+                            "featureType": "boundary",
+                            "elementType": "geometry",
+                            "stylers": {
+                                "color": "#064f85"
+                            }
+                        }, {
+                            "featureType": "railway",
+                            "elementType": "all",
+                            "stylers": {
+                                "visibility": "off"
+                            }
+                        }, {
+                            "featureType": "highway",
+                            "elementType": "geometry",
+                            "stylers": {
+                                "visibility": "off"
+                            }
+                        }, {
+                            "featureType": "highway",
+                            "elementType": "geometry.fill",
+                            "stylers": {
+                                "visibility": "off"
+                            }
+                        }, {
+                            "featureType": "highway",
+                            "elementType": "labels",
+                            "stylers": {
+                                "visibility": "off"
+                            }
+                        }, {
+                            "featureType": "arterial",
+                            "elementType": "geometry",
+                            "stylers": {
+                                "color": "#004981",
+                                "lightness": -39
+                            }
+                        }, {
+                            "featureType": "arterial",
+                            "elementType": "geometry.fill",
+                            "stylers": {
+                                "color": "#00508b"
+                            }
+                        }, {
+                            "featureType": "poi",
+                            "elementType": "all",
+                            "stylers": {
+                                "visibility": "off"
+                            }
+                        }, {
+                            "featureType": "green",
+                            "elementType": "all",
+                            "stylers": {
+                                "color": "#056197",
+                                "visibility": "off"
+                            }
+                        }, {
+                            "featureType": "subway",
+                            "elementType": "all",
+                            "stylers": {
+                                "visibility": "off"
+                            }
+                        }, {
+                            "featureType": "manmade",
+                            "elementType": "all",
+                            "stylers": {
+                                "visibility": "off"
+                            }
+                        }, {
+                            "featureType": "local",
+                            "elementType": "all",
+                            "stylers": {
+                                "visibility": "off"
+                            }
+                        }, {
+                            "featureType": "arterial",
+                            "elementType": "labels",
+                            "stylers": {
+                                "visibility": "off"
+                            }
+                        }, {
+                            "featureType": "boundary",
+                            "elementType": "geometry.fill",
+                            "stylers": {
+                                "color": "#029fd4"
+                            }
+                        }, {
+                            "featureType": "building",
+                            "elementType": "all",
+                            "stylers": {
+                                "color": "#1a5787"
+                            }
+                        }, {
+                            "featureType": "label",
+                            "elementType": "all",
+                            "stylers": {
+                                "visibility": "off"
+                            }
+                        }, {
+                            "featureType": "poi",
+                            "elementType": "labels.text.fill",
+                            "stylers": {
+                                "color": "#ffffff"
+                            }
+                        }, {
+                            "featureType": "poi",
+                            "elementType": "labels.text.stroke",
+                            "stylers": {
+                                "color": "#1e1c1c"
+                            }
+                        }, {
+                            "featureType": "administrative",
+                            "elementType": "labels",
+                            "stylers": {
+                                "visibility": "on"
+                            }
+                        }, {
+                            "featureType": "road",
+                            "elementType": "labels",
+                            "stylers": {
+                                "visibility": "off"
+                            }
+                        }]
+                    }
+                },
+                series: [
+                    {
+                        name: '设备情况',
+                        type: 'scatter',
+                        coordinateSystem: 'bmap',
+                        data: convertData(mapData),
+                        symbolSize: function (val) {
+                            return val[2] / 10;
+                        },
+                        label: {
+                            formatter: '{b}',
+                            position: 'right',
+                            show: false
+                        },
+                        itemStyle: {
+                            color: 'purple'
+                        },
+                        emphasis: {
+                            label: {
+                                show: true
+                            }
+                        }
+                    },
+                    {
+                        name: 'Top 5',
+                        type: 'effectScatter',
+                        coordinateSystem: 'bmap',
+                        data: convertData(mapData.sort(function (a, b) {
+                            return b.value - a.value;
+                        }).slice(0, 6)),
+                        symbolSize: function (val) {
+                            return val[2] / 10;
+                        },
+                        showEffectOn: 'render',
+                        rippleEffect: {
+                            brushType: 'stroke'
+                        },
+                        hoverAnimation: true,
+                        label: {
+                            formatter: '{b}',
+                            position: 'right',
+                            show: true
+                        },
+                        itemStyle: {
+                            color: 'purple',
+                            shadowBlur: 10,
+                            shadowColor: '#333'
+                        },
+                        zlevel: 1
+                    }
+                ]
+            };
+
+
+            echart1.setOption(option);
+            echart2.setOption(option2);
+            echart3.setOption(option3);
+            echart4.setOption(option4);
+
+            setInterval(function () {
+                for (var i = 0; i < 5; i++) {
+                    //弹出
+                    data.shift();
+                    data.push(randomData());
+                }
+                echart1.setOption({
+                    series: [{ data: data }]
+                });
+                //     series: [{
+                // let max = 0;
+                // let bgData = []
+                // data.forEach(item => {
+                //     if (max < item.value[1]) max = item.value[1];
+                // })
+                // data.forEach(item => {
+                //     bgData.push({ value: [item.value[0], max+200] })
+                // })
+
+                // echart.setOption({
+                //     series: [{
+                //         data: data
+                //     }, {
+                //         data: bgData
+                //     }]
+                // });
+            }, 1000);
+            //在线人数
+        });
+
+    </script>
+</body>
+
+</html>

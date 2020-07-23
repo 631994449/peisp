@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="ie9 no-focus"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-focus">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+
+    <title>PEISP管理系统</title>
+
+    <meta name="description" content="OneUI - Admin Dashboard Template & UI Framework">
+    <meta name="author" content="pixelcave">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="/img/favicons/favicon.png">
+
+    <link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/img/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/img/favicons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/img/favicons/favicon-192x192.png" sizes="192x192">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/img/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon-180x180.png">
+    <!-- END Icons -->
+
+    <!-- Stylesheets -->
+    <!-- Web fonts -->
+    <link rel="stylesheet"
+        href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
+
+
+    <!-- Page JS Plugins CSS -->
+    <link rel="stylesheet" href="/js/plugins/slick/slick.min.css">
+    <link rel="stylesheet" href="/js/plugins/slick/slick-theme.min.css">
+
+    <link rel="stylesheet" id="css-main" href="/css/list-style.css">
+    
+    <!-- OneUI CSS framework -->
+    <link rel="stylesheet" id="css-main" href="/css/oneui.css">
+<link rel="stylesheet" id="css-main" href="/css/peisp-extra.css">
+    <!-- 调用现有样式主题 -->
+    <link rel="stylesheet" id="css-theme" href="/css/themes/flat.min.css">
+    <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
+    <!-- <link rel="stylesheet" id="css-theme" href="/css/themes/flat.min.css"> -->
+    <!-- END Stylesheets -->
+</head>
+
+<body>
+    <!-- Page Container -->
+    <!--
+            Available Classes:
+
+            'sidebar-l'                  Left Sidebar and right Side Overlay
+            'sidebar-r'                  Right Sidebar and left Side Overlay
+            'sidebar-mini'               Mini hoverable Sidebar (> 991px)
+            'sidebar-o'                  Visible Sidebar by default (> 991px)
+            'sidebar-o-xs'               Visible Sidebar by default (< 992px)
+
+            'side-overlay-hover'         Hoverable Side Overlay (> 991px)
+            'side-overlay-o'             Visible Side Overlay by default (> 991px)
+
+            'side-scroll'                Enables custom scrolling on Sidebar and Side Overlay instead of native scrolling (> 991px)
+
+            'header-navbar-fixed'        Enables fixed header
+        -->
+    <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
+        <!-- Side Overlay-->
+        <aside id="side-overlay">
+            <!-- Side Overlay Scroll Container -->
+            <div id="side-overlay-scroll">
+                <!-- Side Header -->
+                <div class="side-header side-content">
+                    <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
+                    <button class="btn btn-default pull-right" type="button" data-toggle="layout"
+                        data-action="side_overlay_close">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <span>
+                        <img class="img-avatar img-avatar32" src="/img/avatars/avatar10.jpg" alt="">
+                        <span class="font-w600 push-10-l">Craig Stone</span>
+                    </span>
+                </div>
+                <!-- END Side Header -->
+
+                <!-- Side Content -->
+                <div class="side-content remove-padding-t">
+                    <!-- Notifications -->
+                    <div class="block pull-r-l">
+                        <div class="block-header bg-gray-lighter">
+                            <ul class="block-options">
+                                <li>
+                                    <button type="button" data-toggle="block-option" data-action="refresh_toggle"
+                                        data-action-mode="demo"><i class="si si-refresh"></i></button>
+                                </li>
+                                <li>
+                                    <button type="button" data-toggle="block-option"
+                                        data-action="content_toggle"></button>
+                                </li>
+                            </ul>
+                            <h3 class="block-title">Recent Activity</h3>
+                        </div>
+                        <div class="block-content">
+                            <!-- Activity List -->
+                            <ul class="list list-activity">
+                                <li>
+                                    <i class="si si-wallet text-success"></i>
+                                    <div class="font-w600">New sale ($15)</div>
+                                    <div><a href="javascript:void(0)">Admin Template</a></div>
+                                    <div><small class="text-muted">3 min ago</small></div>
+                                </li>
+                                <li>
+                                    <i class="si si-pencil text-info"></i>
+                                    <div class="font-w600">You edited the file</div>
+                                    <div><a href="javascript:void(0)"><i class="fa fa-file-text-o"></i>
+                                            Documentation.doc</a></div>
+                                    <div><small class="text-muted">15 min ago</small></div>
+                                </li>
+                                <li>
+                                    <i class="si si-close text-danger"></i>
+                                    <div class="font-w600">Project deleted</div>
+                                    <div><a href="javascript:void(0)">Line Icon Set</a></div>
+                                    <div><small class="text-muted">4 hours ago</small></div>
+                                </li>
+                                <li>
+                                    <i class="si si-wrench text-warning"></i>
+                                    <div class="font-w600">Core v2.5 is available</div>
+                                    <div><a href="javascript:void(0)">Update now</a></div>
+                                    <div><small class="text-muted">6 hours ago</small></div>
+                                </li>
+                            </ul>
+                            <div class="text-center">
+                                <small><a href="javascript:void(0)">Load More..</a></small>
+                            </div>
+                            <!-- END Activity List -->
+                        </div>
+                    </div>
+                    <!-- END Notifications -->
+
+                    <!-- Online Friends -->
+                    <div class="block pull-r-l">
+                        <div class="block-header bg-gray-lighter">
+                            <ul class="block-options">
+                                <li>
+                                    <button type="button" data-toggle="block-option" data-action="refresh_toggle"
+                                        data-action-mode="demo"><i class="si si-refresh"></i></button>
+                                </li>
+                                <li>
+                                    <button type="button" data-toggle="block-option"
+                                        data-action="content_toggle"></button>
+                                </li>
+                            </ul>
+                            <h3 class="block-title">Online Friends</h3>
+                        </div>
+                        <div class="block-content block-content-full">
+                            <!-- Users Navigation -->
+                            <ul class="nav-users">
+                                <li>
+                                    <a href="base_pages_profile.html">
+                                        <img class="img-avatar" src="/img/avatars/avatar5.jpg" alt="">
+                                        <i class="fa fa-circle text-success"></i> Rebecca Gray
+                                        <div class="font-w400 text-muted"><small>Copywriter</small></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_profile.html">
+                                        <img class="img-avatar" src="/img/avatars/avatar9.jpg" alt="">
+                                        <i class="fa fa-circle text-success"></i> John Parker
+                                        <div class="font-w400 text-muted"><small>Web Developer</small></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_profile.html">
+                                        <img class="img-avatar" src="/img/avatars/avatar8.jpg" alt="">
+                                        <i class="fa fa-circle text-success"></i> Julia Cole
+                                        <div class="font-w400 text-muted"><small>Web Designer</small></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_profile.html">
+                                        <img class="img-avatar" src="/img/avatars/avatar8.jpg" alt="">
+                                        <i class="fa fa-circle text-warning"></i> Rebecca Gray
+                                        <div class="font-w400 text-muted"><small>Photographer</small></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_profile.html">
+                                        <img class="img-avatar" src="/img/avatars/avatar13.jpg" alt="">
+                                        <i class="fa fa-circle text-warning"></i> Dennis Ross
+                                        <div class="font-w400 text-muted"><small>Graphic Designer</small></div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- END Users Navigation -->
+                        </div>
+                    </div>
+                    <!-- END Online Friends -->
+
+                    <!-- Quick Settings -->
+                    <div class="block pull-r-l">
+                        <div class="block-header bg-gray-lighter">
+                            <ul class="block-options">
+                                <li>
+                                    <button type="button" data-toggle="block-option"
+                                        data-action="content_toggle"></button>
+                                </li>
+                            </ul>
+                            <h3 class="block-title">Quick Settings</h3>
+                        </div>
+                        <div class="block-content">
+                            <!-- Quick Settings Form -->
+                            <form class="form-bordered" action="index.html" method="post" onsubmit="return false;">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-8">
+                                            <div class="font-s13 font-w600">Online Status</div>
+                                            <div class="font-s13 font-w400 text-muted">Show your status to all</div>
+                                        </div>
+                                        <div class="col-xs-4 text-right">
+                                            <label class="css-input switch switch-sm switch-primary push-10-t">
+                                                <input type="checkbox"><span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-8">
+                                            <div class="font-s13 font-w600">Auto Updates</div>
+                                            <div class="font-s13 font-w400 text-muted">Keep up to date</div>
+                                        </div>
+                                        <div class="col-xs-4 text-right">
+                                            <label class="css-input switch switch-sm switch-primary push-10-t">
+                                                <input type="checkbox"><span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-8">
+                                            <div class="font-s13 font-w600">Notifications</div>
+                                            <div class="font-s13 font-w400 text-muted">Do you need them?</div>
+                                        </div>
+                                        <div class="col-xs-4 text-right">
+                                            <label class="css-input switch switch-sm switch-primary push-10-t">
+                                                <input type="checkbox" checked><span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-8">
+                                            <div class="font-s13 font-w600">API Access</div>
+                                            <div class="font-s13 font-w400 text-muted">Enable/Disable access</div>
+                                        </div>
+                                        <div class="col-xs-4 text-right">
+                                            <label class="css-input switch switch-sm switch-primary push-10-t">
+                                                <input type="checkbox" checked><span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END Quick Settings Form -->
+                        </div>
+                    </div>
+                    <!-- END Quick Settings -->
+                </div>
+                <!-- END Side Content -->
+            </div>
+            <!-- END Side Overlay Scroll Container -->
+        </aside>
+        <!-- END Side Overlay -->
+
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <!-- Sidebar Scroll Container -->
+            <div id="sidebar-scroll">
+                <!-- Sidebar Content -->
+                <!-- Adding .sidebar-mini-hide to an element will hide it when the sidebar is in mini mode -->
+                <div class="sidebar-content">
+                    <!-- Side Header -->
+                   <div class="side-header side-content bg-white-op">
+                            <a class="h5 text-white" href="index.html"> 
+								<em class="fa fa-puzzle-piece text-primary"></em> 
+							<span class="h4 font-w600 sidebar-mini-hide">PEISP</span> 
+							</a>
+						</div>
+                    <!-- END Side Header -->
+
+                    <!-- 导航栏-->
+                    <div class="side-content">
+                        <ul class="nav-main">
+								<li>
+                                    <a href="index.html"><i class="si si-briefcase"></i><span class="sidebar-mini-hide">PEISP主页</span></a>
+                                </li>
+								<li>
+                                    <a href="dash_board.html" class="active"><i class="si si-bar-chart"></i><span class="sidebar-mini-hide">企业主页</span></a>
+                                </li>
+								<li >
+                                    <a class="nav-submenu" data-toggle="nav-submenu" href="CameraPage.html"><i class="si si-camcorder"></i><span class="sidebar-mini-hide">实时监控</span></a>
+                                    <ul>
+                                        <li >
+                                            <a class="nav-submenu" data-toggle="nav-submenu" href="#">工厂A</a>
+                                            <ul >
+                                                <li>
+                                                    <a href="CameraPage.html">车间a</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">车间b</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a class="nav-submenu" data-toggle="nav-submenu" href="#">工厂B</a>
+                                           	<ul>
+                                                <li>
+                                                    <a href="#">车间a</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">车间b</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a class="nav-submenu" data-toggle="nav-submenu" href="#">工厂C</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">车间a</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">车间b</a>
+                                                </li>
+												<li>
+                                                    <a href="#">车间c</a>
+                                                </li>
+												<li>
+                                                    <a href="#">车间d</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="nav-submenu" data-toggle="nav-submenu" href="worker_info.html"><i class="si si-grid"></i><span class="sidebar-mini-hide">员工列表</span></a>
+                                    <ul>
+                                        <li>
+                                            <a class="active" href="#">所有员工</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">添加员工</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="helmet_info.html"><i class="si si-wrench"></i>
+										<span class="sidebar-mini-hide">安全帽列表</span></a>
+                                </li>
+								<li>
+                                    <a href="monitor_history.html"><i class="si si-note"></i>
+										<span class="sidebar-mini-hide">违规记录列表</span></a>
+                                </li>
+                            </ul>
+                    </div>
+                    <!-- END 导航栏 -->
+                </div>
+                <!-- Sidebar Content -->
+            </div>
+            <!-- END Sidebar Scroll Container -->
+        </nav>
+        <!-- END Sidebar -->
+
+        <!-- Header -->
+        <header id="header-navbar" class="content-mini content-mini-full">
+            <!-- Header Navigation Right -->
+            <ul class="nav-header pull-right">
+                <li>
+                    <div class="btn-group">
+                        <button class="btn btn-default btn-image dropdown-toggle" data-toggle="dropdown" type="button">
+                            <img src="/img/avatars/avatar10.jpg" alt="Avatar">
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li class="dropdown-header">Profile</li>
+                            <li>
+                                <a tabindex="-1" href="base_pages_inbox.html">
+                                    <i class="si si-envelope-open pull-right"></i>
+                                    <span class="badge badge-primary pull-right">3</span>Inbox
+                                </a>
+                            </li>
+                            <li>
+                                <a tabindex="-1" href="base_pages_profile.html">
+                                    <i class="si si-user pull-right"></i>
+                                    <span class="badge badge-success pull-right">1</span>Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a tabindex="-1" href="javascript:void(0)">
+                                    <i class="si si-settings pull-right"></i>Settings
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header">Actions</li>
+                            <li>
+                                <a tabindex="-1" href="base_pages_lock.html">
+                                    <i class="si si-lock pull-right"></i>Lock Account
+                                </a>
+                            </li>
+                            <li>
+                                <a tabindex="-1" href="base_pages_login.html">
+                                    <i class="si si-logout pull-right"></i>Log out
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
+                    <button class="btn btn-default" data-toggle="layout" data-action="side_overlay_toggle"
+                        type="button">
+                        <i class="fa fa-tasks"></i>
+                    </button>
+                </li>
+            </ul>
+            <!-- END Header Navigation Right -->
+
+            <!-- Header Navigation Left -->
+            <ul class="nav-header pull-left">
+                <li class="hidden-md hidden-lg">
+                    <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
+                    <button class="btn btn-default" data-toggle="layout" data-action="sidebar_toggle" type="button">
+                        <i class="fa fa-navicon"></i>
+                    </button>
+                </li>
+                <li class="hidden-xs hidden-sm">
+                    <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
+                    <button class="btn btn-default" data-toggle="layout" data-action="sidebar_mini_toggle"
+                        type="button">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </button>
+                </li>
+                <li>
+                    <!-- Opens the Apps modal found at the bottom of the page, before including JS code -->
+                    <button class="btn btn-default pull-right" data-toggle="modal" data-target="#apps-modal"
+                        type="button">
+                        <i class="si si-grid"></i>
+                    </button>
+                </li>
+                <li class="visible-xs">
+                    <!-- Toggle class helper (for .js-header-search below), functionality initialized in App() -> uiToggleClass() -->
+                    <button class="btn btn-default" data-toggle="class-toggle" data-target=".js-header-search"
+                        data-class="header-search-xs-visible" type="button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </li>
+                <li class="js-header-search header-search">
+                    <form class="form-horizontal" action="base_pages_search.html" method="post">
+                        <div class="form-material form-material-primary input-group remove-margin-t remove-margin-b">
+                            <input class="form-control" type="text" id="base-material-text" name="base-material-text"
+                                placeholder="Search..">
+                            <span class="input-group-addon"><i class="si si-magnifier"></i></span>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+            <!-- END Header Navigation Left -->
+        </header>
+        <!-- END Header -->
+
+        <!-- Main Container -->
+        <main id="main-container">
+            <!-- Page Header -->
+            <div class="content bg-image overflow-hidden"
+                style="background-image: url('/img/photos/photo3@2x.jpg');">
+                <div class="push-50-t push-15">
+                    <h1 class="h1 text-white animated zoomIn">WBD企业</h1>
+                    <h2 class="h5 text-white-op animated zoomIn">欢迎使用PEISP系统</h2>
+                </div>
+            </div>
+            <!-- END Page Header -->
+
+            <!-- Stats -->
+            <div class="content bg-white border-b">
+                <div class="row items-push text-uppercase">
+                    <div class="col-xs-6 col-sm-3">
+                        <div class="font-w700 text-gray-darker animated fadeIn">违规人员人数</div>
+                        <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> 当日</small>
+                        </div>
+                        <a class="h2 font-w300 text-primary animated flipInX" href="base_comp_charts.html">300</a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <div class="font-w700 text-gray-darker animated fadeIn">违规人员人数</div>
+                        <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> 当月</small>
+                        </div>
+                        <a class="h2 font-w300 text-primary animated flipInX" href="base_comp_charts.html">8,790</a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <div class="font-w700 text-gray-darker animated fadeIn">出勤率</div>
+                        <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i>当日</small>
+                        </div>
+                        <a class="h2 font-w300 text-primary animated flipInX" href="base_comp_charts.html">98 %</a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <div class="font-w700 text-gray-darker animated fadeIn">缺勤人数</div>
+                        <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i>当日</small>
+                        </div>
+                        <a class="h2 font-w300 text-primary animated flipInX" href="base_comp_charts.html">20</a>
+                    </div>
+                </div>
+            </div>
+            <!-- END Stats -->
+
+            <!-- Page Content -->
+            <div class="content">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <!-- Main Dashboard Chart -->
+                        <div class="block">
+                            <div class="block-header">
+                                <ul class="block-options">
+                                    <li>
+                                        <button type="button" data-toggle="block-option" data-action="refresh_toggle"
+                                            data-action-mode="demo"><i class="si si-refresh"></i></button>
+                                    </li>
+                                </ul>
+                                <h3 class="block-title">每周安全概述</h3>
+                            </div>
+                            <div class="block-content block-content-full bg-gray-lighter text-center">
+                                <!-- Chart.js Charts (initialized in js/pages/base_pages_dashboard.js), for more examples you can check out http://www.chartjs.org/docs/ -->
+                                <div style="height: 374px;"><canvas class="js-dash-chartjs-lines"></canvas></div>
+                            </div>
+                            <div class="block-content text-center">
+                                <div class="row items-push text-center">
+                                    <div class="col-xs-6 col-lg-3">
+                                        <div class="push-10"><i class="si si-graph fa-2x"></i></div>
+                                        <div class="h5 font-w300 text-muted">+ 205 不规范事件</div>
+                                    </div>
+                                    <div class="col-xs-6 col-lg-3">
+                                        <div class="push-10"><i class="si si-users fa-2x"></i></div>
+                                        <div class="h5 font-w300 text-muted">+ 25 严重事件</div>
+                                    </div>
+                                    <div class="col-xs-6 col-lg-3 visible-lg">
+                                        <div class="push-10"><i class="si si-star fa-2x"></i></div>
+                                        <div class="h5 font-w300 text-muted">+ 10 特大严重事件</div>
+                                    </div>
+                                    <div class="col-xs-6 col-lg-3 visible-lg">
+                                        <div class="push-10"><i class="si si-share fa-2x"></i></div>
+                                        <div class="h5 font-w300 text-muted">2% 事故发生率 </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END Main Dashboard Chart -->
+                    </div>
+
+                    <div class="col-lg-4">
+                        <!-- Latest Sales Widget -->
+                        <div class="block">
+                            <div class="block-header">
+                                <ul class="block-options">
+                                    <li>
+                                        <button type="button" data-toggle="block-option" data-action="refresh_toggle"
+                                            data-action-mode="demo"><i class="si si-refresh"></i></button>
+                                    </li>
+                                </ul>
+                                <h3 class="block-title">出勤记录</h3>
+                            </div>
+                            <div class="block-content bg-gray-lighter">
+                                <div class="row items-push">
+                                    <div class="col-xs-4">
+                                        <div class="text-muted"><small><i class="si si-calendar"></i> 24 小时</small>
+                                        </div>
+                                        <div class="font-w600">180 人</div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="text-muted"><small><i class="si si-calendar"></i> 7 天</small>
+                                        </div>
+                                        <div class="font-w600">789 人</div>
+                                    </div>
+                                    <div class="col-xs-4 h1 font-w300 text-right">98 %</div>
+                                </div>
+                            </div>
+                            <div class="block-content">
+                                <div class="pull-t pull-r-l">
+                                    <!-- Slick slider (.js-slider class is initialized in App() -> uiHelperSlick()) -->
+                                    <!-- For more info and examples you can check out http://kenwheeler.github.io/slick/ -->
+                                    <div class="js-slider remove-margin-b" data-slider-autoplay="true"
+                                        data-slider-autoplay-speed="2500">
+                                        <div>
+                                            <table class="table remove-margin-b font-s13">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="font-w600">
+                                                            <a href="javascript:void(0)">王石</a>
+                                                        </td>
+                                                        <td class="hidden-xs text-muted text-right"
+                                                            style="width: 150px;">23:12</td>
+                                                        <td class="font-w600 text-success text-right"
+                                                            style="width: 70px;">上岗</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="font-w600">
+                                                            <a href="javascript:void(0)">于清教</a>
+                                                        </td>
+                                                        <td class="hidden-xs text-muted text-right"
+                                                            style="width: 150px;">23:12</td>
+                                                        <td class="font-w600 text-success text-right"
+                                                            style="width: 70px;">上岗</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="font-w600">
+                                                            <a href="javascript:void(0)">潘旭鸿</a>
+                                                        </td>
+                                                        <td class="hidden-xs text-muted text-right"
+                                                            style="width: 150px;">23:12</td>
+                                                        <td class="font-w600 text-success text-right"
+                                                            style="width: 70px;">上岗</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="font-w600">
+                                                            <a href="javascript:void(0)">付伟</a>
+                                                        </td>
+                                                        <td class="hidden-xs text-muted text-right"
+                                                            style="width: 150px;">23:12</td>
+                                                        <td class="font-w600 text-success text-right"
+                                                            style="width: 70px;">上岗</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="font-w600">
+                                                            <a href="javascript:void(0)">陈嘉敏</a>
+                                                        </td>
+                                                        <td class="hidden-xs text-muted text-right"
+                                                            style="width: 150px;">23:12</td>
+                                                        <td class="font-w600 text-danger text-right"
+                                                            style="width: 70px;">缺勤</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="font-w600">
+                                                            <a href="javascript:void(0)">刘海平</a>
+                                                        </td>
+                                                        <td class="hidden-xs text-muted text-right"
+                                                            style="width: 150px;">23:12</td>
+                                                        <td class="font-w600 text-danger text-right"
+                                                            style="width: 70px;">缺勤</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="font-w600">
+                                                            <a href="javascript:void(0)">刘建波</a>
+                                                        </td>
+                                                        <td class="hidden-xs text-muted text-right"
+                                                            style="width: 150px;">23:12</td>
+                                                        <td class="font-w600 text-warning text-right"
+                                                            style="width: 70px;">请假</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="font-w600">
+                                                            <a href="javascript:void(0)">林赞</a>
+                                                        </td>
+                                                        <td class="hidden-xs text-muted text-right"
+                                                            style="width: 150px;">23:12</td>
+                                                        <td class="font-w600 text-warning text-right"
+                                                            style="width: 70px;">早退</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="font-w600">
+                                                            <a href="javascript:void(0)">潘二伟</a>
+                                                        </td>
+                                                        <td class="hidden-xs text-muted text-right"
+                                                            style="width: 150px;">23:12</td>
+                                                        <td class="font-w600 text-success text-right"
+                                                            style="width: 70px;">上岗</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="font-w600">
+                                                            <a href="javascript:void(0)">孙文锦</a>
+                                                        </td>
+                                                        <td class="hidden-xs text-muted text-right"
+                                                            style="width: 150px;">23:12</td>
+                                                        <td class="font-w600 text-success text-right"
+                                                            style="width: 70px;">下岗</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div>
+                                            <table class="table remove-margin-b font-s13">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="font-w600">
+                                                            <a href="javascript:void(0)">孙治涛</a>
+                                                        </td>
+                                                        <td class="hidden-xs text-muted text-right"
+                                                            style="width: 150px;">23:12</td>
+                                                        <td class="font-w600 text-danger text-right"
+                                                            style="width: 70px;">缺勤</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="font-w600">
+                                                            <a href="javascript:void(0)">王传曦</a>
+                                                        </td>
+                                                        <td class="hidden-xs text-muted text-right"
+                                                            style="width: 150px;">23:12</td>
+                                                        <td class="font-w600 text-warning text-right"
+                                                            style="width: 70px;">请假</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="font-w600">
+                                                            <a href="javascript:void(0)">唐凌峰</a>
+                                                        </td>
+                                                        <td class="hidden-xs text-muted text-right"
+                                                            style="width: 150px;">23:12</td>
+                                                        <td class="font-w600 text-warning text-right"
+                                                            style="width: 70px;">早退</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="font-w600">
+                                                            <a href="javascript:void(0)">马俊沐</a>
+                                                        </td>
+                                                        <td class="hidden-xs text-muted text-right"
+                                                            style="width: 150px;">23:12</td>
+                                                        <td class="font-w600 text-success text-right"
+                                                            style="width: 70px;">上岗</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="font-w600">
+                                                            <a href="javascript:void(0)">岳阳</a>
+                                                        </td>
+                                                        <td class="hidden-xs text-muted text-right"
+                                                            style="width: 150px;">23:12</td>
+                                                        <td class="font-w600 text-success text-right"
+                                                            style="width: 70px;">下岗</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <!-- END Slick slider -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END Latest Sales Widget -->
+                    </div>
+                    <div class="col-lg-4">
+                        <!-- select list -->
+                        <div class="block">
+                            <div class="block-header">
+                                <h3 class="block-title">工厂违规概述</h3>
+                            </div>
+                            <div class="">
+                                <ul class="menu">
+                                    <li class="list"><a>东一厂</a> 
+                                       <ul class="items">
+                                          <li><a> 1号车间</a></li>
+                                          <li><a> 2号车间</a></li>
+                                          <li><a> 3号车间</a></li>
+                                       </ul>
+                                    </li>
+                                    
+                                    <li class="list"><a>东二厂</a> 
+                                        <ul class="items">
+                                           <li><a> 1号车间</a></li>
+                                           <li><a> 2号车间</a></li>
+                                           <li><a> 3号车间</a></li>
+                                        </ul>
+                                     </li>
+                                     <li class="list"><a>东三厂</a> 
+                                        <ul class="items">
+                                           <li><a> 1号车间</a></li>
+                                           <li><a> 2号车间</a></li>
+                                           <li><a> 3号车间</a></li>
+                                        </ul>
+                                     </li>
+                                     <li class="list"><a>西一厂</a> 
+                                        <ul class="items">
+                                           <li><a> 1号车间</a></li>
+                                           <li><a> 2号车间</a></li>
+                                           <li><a> 3号车间</a></li>
+                                        </ul>
+                                     </li>
+                                 </ul>
+                            </div>
+                            <div class="block-content"> 
+
+                            </div>
+                        </div>
+                        <!-- END Pie Chart -->
+                    </div>
+                    <div class="col-lg-8">
+                        <!-- Block Tabs Animated Fade -->
+                        <div class="block">
+                            <ul class="nav nav-tabs" data-toggle="tabs">
+                                <li class="active">
+                                    <a href="#btabs-animated-fade-home">数据月统计</a>
+                                </li>
+                                <li>
+                                    <a href="#btabs-animated-fade-profile">数据线图</a>
+                                </li>
+                                <li class="pull-right">
+                                    <a href="#btabs-animated-fade-settings" data-toggle="tooltip" title="Settings"><i
+                                            class="si si-settings"></i></a>
+                                </li>
+                            </ul>
+                            <div class="block-content tab-content">
+                                <div class="tab-pane fade in active" id="btabs-animated-fade-home">
+                                    <!-- <h4 class="font-w300 push-15">数据统计</h4> -->
+                                    <!-- Easy Pie Chart (.js-pie-chart class is initialized in App() -> uiHelperEasyPieChart()) -->
+                                    <!-- For more info and examples you can check out http://rendro.github.io/easy-pie-chart/ -->
+                                    <!-- Randomize Values Buttons functionality initialized in js/pages/base_comp_charts.js -->
+
+                                    <!-- Simple -->
+                                    <div class="block">
+                                        <!-- <div class="block-header">
+                                            <ul class="block-options">
+                                                <li>
+                                                    <button class="js-pie-randomize" type="button" data-toggle="tooltip"
+                                                        title="Randomize"><i class="fa fa-random"></i></button>
+                                                </li>
+                                                <li>
+                                                    <button type="button" data-toggle="block-option"
+                                                        data-action="refresh_toggle" data-action-mode="demo"><i
+                                                            class="si si-refresh"></i></button>
+                                                </li>
+                                            </ul>
+                                        </div> -->
+                                        <div class="block-content">
+                                            <div class="row items-push-2x text-center">
+                                                <div class="col-xs-6 col-sm-4">
+                                                    <!-- Pie Chart Container -->
+                                                    <div class="js-pie-chart pie-chart" data-percent="80"
+                                                        data-line-width="3" data-size="100" data-bar-color="#abe37d"
+                                                        data-track-color="#eeeeee" data-scale-color="#dddddd">
+                                                        <span>8 <br><small class="text-muted">/100</small></span>
+                                                    </div>
+                                                    <div>日违规数</div>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-4">
+                                                    <!-- Pie Chart Container -->
+                                                    <div class="js-pie-chart pie-chart" data-percent="45"
+                                                        data-line-width="3" data-size="100" data-bar-color="#fadb7d"
+                                                        data-track-color="#eeeeee" data-scale-color="#dddddd">
+                                                        <span>45%</span>
+                                                    </div>
+                                                    <div>周违规数</div>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-4">
+                                                    <!-- Pie Chart Container -->
+                                                    <div class="js-pie-chart pie-chart" data-percent="25"
+                                                        data-line-width="3" data-size="100" data-bar-color="#faad7d"
+                                                        data-track-color="#eeeeee" data-scale-color="#dddddd">
+                                                        <span>25.00 <br><small class="text-muted">/100mb</small></span>
+                                                    </div>
+                                                    <div>月违规数</div>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-4">
+                                                    <!-- Pie Chart Container -->
+                                                    <div class="js-pie-chart pie-chart" data-percent="80"
+                                                        data-line-width="3" data-size="100" data-bar-color="#abe37d"
+                                                        data-track-color="#eeeeee">
+                                                        <span>8 <br><small class="text-muted">/100</small></span>
+                                                    </div>
+                                                    <div>平均违规数</div>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-4">
+                                                    <!-- Pie Chart Container -->
+                                                    <div class="js-pie-chart pie-chart" data-percent="45"
+                                                        data-line-width="3" data-size="100" data-bar-color="#fadb7d"
+                                                        data-track-color="#eeeeee">
+                                                        <span>45%</span>
+                                                    </div>
+                                                    <div>员工数</div>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-4">
+                                                    <!-- Pie Chart Container -->
+                                                    <div class="js-pie-chart pie-chart" data-percent="25"
+                                                        data-line-width="3" data-size="100" data-bar-color="#faad7d"
+                                                        data-track-color="#eeeeee">
+                                                        <span>25.00 <br><small class="text-muted">/100mb</small></span>
+                                                    </div>
+                                                    <div>出勤率</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END Simple -->
+                                </div>
+                                <div class="tab-pane fade" id="btabs-animated-fade-profile">
+                                    <h4 class="font-w300 push-15">数据线图</h4>
+                                    <p>Content fades in..</p>
+                                </div>
+                                <div class="tab-pane fade" id="btabs-animated-fade-settings">
+                                    <h4 class="font-w300 push-15">Settings Tab</h4>
+                                    <p>Content fades in..</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END Block Tabs Animated Fade -->
+                    </div>
+                </div>
+            </div>
+            <!-- END Page Content -->
+        </main>
+        <!-- END Main Container -->
+
+        <!-- Footer -->
+        <footer id="page-footer" class="content-mini content-mini-full font-s12 bg-gray-lighter clearfix">
+            <div class="pull-right">
+                Crafted with <i class="fa fa-heart text-city"></i> by <a class="font-w600" href=""
+                    target="_blank">pixelcave</a>
+            </div>
+            <div class="pull-left">
+                <a class="font-w600" href="javascript:void(0)" target="_blank">OneUI 1.0</a> &copy; <span
+                    class="js-year-copy"></span>
+            </div>
+        </footer>
+        <!-- END Footer -->
+    </div>
+    <!-- END Page Container -->
+
+    <!-- Apps Modal -->
+    <!-- Opens from the button in the header -->
+    <div class="modal fade" id="apps-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-sm modal-dialog modal-dialog-top">
+            <div class="modal-content">
+                <!-- Apps Block -->
+                <div class="block block-themed block-transparent">
+                    <div class="block-header bg-primary-dark">
+                        <ul class="block-options">
+                            <li>
+                                <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
+                            </li>
+                        </ul>
+                        <h3 class="block-title">Apps</h3>
+                    </div>
+                    <div class="block-content">
+                        <div class="row text-center">
+                            <div class="col-xs-6">
+                                <a class="block block-rounded" href="index.html">
+                                    <div class="block-content text-white bg-default">
+                                        <i class="si si-speedometer fa-2x"></i>
+                                        <div class="font-w600 push-15-t push-15">Backend</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xs-6">
+                                <a class="block block-rounded" href="frontend_home.html">
+                                    <div class="block-content text-white bg-modern">
+                                        <i class="si si-rocket fa-2x"></i>
+                                        <div class="font-w600 push-15-t push-15">Frontend</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Apps Block -->
+            </div>
+        </div>
+    </div>
+    <!-- END Apps Modal -->
+
+    <!-- OneUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
+    <script src="/js/core/jquery.min.js"></script>
+    <script src="/js/core/bootstrap.min.js"></script>
+    <script src="/js/core/jquery.slimscroll.min.js"></script>
+    <script src="/js/core/jquery.scrollLock.min.js"></script>
+    <script src="/js/core/jquery.appear.min.js"></script>
+    <script src="/js/core/jquery.countTo.min.js"></script>
+    <script src="/js/core/jquery.placeholder.min.js"></script>
+    <script src="/js/core/js.cookie.min.js"></script>
+    <script src="/js/app.js"></script>
+
+    <!-- Page JS Plugins -->
+    <script src="/js/plugins/slick/slick.min.js"></script>
+    <script src="/js/plugins/chartjs/Chart.min.js"></script>
+    <script src="/js/plugins/easy-pie-chart/jquery.easypiechart.min.js"></script>
+
+    <!-- Page JS Code -->
+    <script src="/js/pages/base_pages_dashboard.js"></script>
+
+    <script>
+        $(function () {
+            // Init page helpers (Easy Pie Chart plugin)
+            App.initHelpers('slick');
+            App.initHelpers('easy-pie-chart');
+        });
+
+        var list = document.querySelectorAll('.list');
+
+		function accordion(e) {
+		    e.stopPropagation();
+		    if (this.classList.contains('active')) {
+		        this.classList.remove('active');
+		    } else
+		    if (this.parentElement.parentElement.classList.contains('active')) {
+		        this.classList.add('active');
+		    } else
+		    {
+		        for (i = 0; i < list.length; i++) {
+		            list[i].classList.remove('active');
+		        }
+		        this.classList.add('active');
+		    }
+		}
+		for (i = 0; i < list.length; i++) {
+		    list[i].addEventListener('click', accordion);
+		}
+    </script>
+    <!-- 
+    <script>
+        var $chartLinesCon  = jQuery('.js-chartjs-lines')[0].getContext('2d');
+
+    </script> -->
+
+    
+</body>
+
+</html>

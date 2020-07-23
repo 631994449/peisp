@@ -1,0 +1,6 @@
+/* 网站全局设置 */
+
+#header-navbar .btn-default{
+    background-color:transparent;
+    border: 0px;                     
+}
