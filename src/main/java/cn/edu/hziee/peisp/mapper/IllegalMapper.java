@@ -2,6 +2,8 @@ package cn.edu.hziee.peisp.mapper;
 
 import cn.edu.hziee.peisp.entity.Illegal;
 
+import java.util.List;
+
 public interface IllegalMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,6 @@ public interface IllegalMapper {
     int updateByPrimaryKeySelective(Illegal record);
 
     int updateByPrimaryKey(Illegal record);
+
+    List<Illegal> getMax5Illegal();
 }

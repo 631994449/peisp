@@ -1,4 +1,6 @@
 ﻿<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <!--[if IE 9]>         <html class="ie9 no-focus"> <![endif]-->
 <!--[if gt IE 9]><!--> <html class="no-focus"> <!--<![endif]-->
     <head>
@@ -43,7 +45,7 @@
     <link rel="stylesheet" id="css-theme" href="/css/themes/flat.min.css">
         <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
 		<style type="text/css">
-			#myCanvas{
+			.myCanvas{
 				width: 100%;
 				height: 310px;
 				border: 2px solid black;
@@ -236,7 +238,7 @@
                             </div>
                             <div class="block-content">
                                 <!-- Quick Settings Form -->
-                                <form class="form-bordered" action="index.html" method="post" onsubmit="return false;">
+                                <form class="form-bordered" action="/index.html" method="post" onsubmit="return false;">
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-xs-8">
@@ -309,7 +311,7 @@
                     <div class="sidebar-content">
                         <!-- Side Header -->
                         <div class="side-header side-content bg-white-op">
-                            <a class="h5 text-white" href="index.html"> 
+                            <a class="h5 text-white" href="/index.html">
 								<em class="fa fa-puzzle-piece text-primary"></em> 
 							<span class="h4 font-w600 sidebar-mini-hide">PEISP</span> 
 							</a>
@@ -320,10 +322,10 @@
                         <div class="side-content">
                             <ul class="nav-main">
 								<li>
-                                    <a href="index.html"><i class="si si-briefcase"></i><span class="sidebar-mini-hide">PEISP主页</span></a>
+                                    <a href="/index.html"><i class="si si-briefcase"></i><span class="sidebar-mini-hide">PEISP主页</span></a>
                                 </li>
 								<li>
-                                    <a href="dash_board.html"><i class="si si-bar-chart"></i><span class="sidebar-mini-hide">企业主页</span></a>
+                                    <a href="/dash_board.html"><i class="si si-bar-chart"></i><span class="sidebar-mini-hide">企业主页</span></a>
                                 </li>
 								<li class="open">
                                     <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-camcorder"></i><span class="sidebar-mini-hide">实时监控</span></a>
@@ -332,7 +334,7 @@
                                             <a class="nav-submenu" data-toggle="nav-submenu" href="#">工厂A</a>
                                             <ul class="open">
                                                 <li>
-                                                    <a href="CameraPage.html">车间a</a>
+                                                    <a href="/CameraPage">车间a</a>
                                                 </li>
                                                 <li>
                                                     <a href="#">车间b</a>
@@ -370,7 +372,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a class="nav-submenu" data-toggle="nav-submenu" href="worker_info.html"><i class="si si-grid"></i><span class="sidebar-mini-hide">员工列表</span></a>
+                                    <a class="nav-submenu" data-toggle="nav-submenu" href="/worker_info.html"><i class="si si-grid"></i><span class="sidebar-mini-hide">员工列表</span></a>
                                     <ul>
                                         <li>
                                             <a class="active" href="#">所有员工</a>
@@ -381,7 +383,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="helmet_info.html"><i class="si si-wrench"></i>
+                                    <a href="/helmet_info.html"><i class="si si-wrench"></i>
 										<span class="sidebar-mini-hide">安全帽列表</span></a>
                                 </li>
 								<li>
@@ -436,7 +438,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a tabindex="-1" href="base_pages_login.html">
+                                    <a tabindex="-1" href="/base_pages_login.html">
                                         <i class="si si-logout pull-right"></i>Log out
                                     </a>
                                 </li>
@@ -520,7 +522,7 @@
 									<h3 class="block-title">实时监控</h3>
 								</div>
 								<div class="block-content">
-									<video width="100%" height="310px" autoplay="autoplay" muted loop id="liveVideo" class="video-js">
+									<video width="100%" height="310px" autoplay="autoplay" muted loop id="liveVideo" class="myCanvas video-js">
                                         <source src="rtmp://60.12.136.59:22121/live/" type="rtmp/flv">
 									</video>
 								</div>
@@ -536,7 +538,7 @@
 									<h3 class="block-title">俯视地图</h3>
 								</div>
 								<div class="block-content">
-									<img id="myCanvas" src="/img/4.png"></img>
+									<img class="myCanvas" src="/img/4.png">
 								</div>
 							</div>
 							<!-- END Square Buttons -->
@@ -549,26 +551,11 @@
 							<h3 class="block-title">违规记录</h3>
 						</div>
 						<div class="row items-push text-center">
-							<div class="col-xs-6 col-sm-6 col-lg-2" onClick="show(this)">
-								<img src="/img/photos/nohat1.png" class="img-illegal" id="hcs-btn"/>
-								<div class="push-10-t font-w600 font-red">未识别</div>
-							</div>
-							<div class="col-xs-6 col-sm-6 col-lg-2" onClick="show(this)">
-								<img src="/img/photos/nohat2.png" class="img-illegal" id="h123"/>
-								<div class="push-10-t font-w600 font-red">未识别</div>
-							</div>
-							<div class="col-xs-6 col-sm-6 col-lg-2" onClick="show(this)">
-								<img src="/img/photos/nohat3.png" class="img-illegal"/>
-								<div class="push-10-t font-w600 font-red">未识别</div>
-							</div>
-							<div class="col-xs-6 col-sm-6 col-lg-2" onClick="show(this)">
-								<img src="/img/photos/nohat4.png" class="img-illegal"/>
-								<div class="push-10-t font-w600">张三</div>
-							</div>
-							<div class="col-xs-6 col-sm-6 col-lg-2" onClick="show(this)">
-								<img src="/img/photos/nohat5.png" class="img-illegal"/>
-								<div class="push-10-t font-w600 font-red">未识别</div>
-							</div>
+                            <!--下面这个div应该要有onClick="show(this)"，暂时禁用-->
+                            <div class="col-xs-6 col-sm-6 col-lg-2" th:each="illegal:${illegals}" th:id="${illegal.id}">
+                                <img th:src="${illegal.imgDir}" class="img-illegal" id="hcs-btn"/>
+                                <div class="push-10-t font-w600 font-red"><span th:text="${illegal.workerId==null?'未识别':illegal.workerName}"></span> </div>
+                            </div>
 							<div class="col-xs-6 col-sm-6 col-lg-2">
 								<div style="height: 60px"></div>
 								<a class="item item-circle bg-primary-light text-white-op center-block" href="" >
@@ -657,7 +644,7 @@
                         <div class="block-content">
                             <div class="row text-center">
                                 <div class="col-xs-6">
-                                    <a class="block block-rounded" href="index.html">
+                                    <a class="block block-rounded" href="/index.html">
                                         <div class="block-content text-white bg-default">
                                             <i class="si si-speedometer fa-2x"></i>
                                             <div class="font-w600 push-15-t push-15">Backend</div>
@@ -682,6 +669,9 @@
         <!-- END Apps Modal -->
 
         <!-- OneUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
+        <link href="/js/video7.3.0/video-js.min.css" rel="stylesheet">
+        <script src="/js/video7.3.0/video.min.js"></script>
+        <script src="/js/flash/videojs-flash.min.js"></script>
         <script src="/js/core/jquery.min.js"></script>
         <script src="/js/core/bootstrap.min.js"></script>
         <script src="/js/core/jquery.slimscroll.min.js"></script>
@@ -691,62 +681,46 @@
         <script src="/js/core/jquery.placeholder.min.js"></script>
         <script src="/js/core/js.cookie.min.js"></script>
         <script src="/js/app.js"></script>
-		<!--2DMap's JS-->
-		<script type="text/javascript">
-			//画布初始化
-			var c=document.getElementById("myCanvas");
-			document.getElementById('myCanvas').style.height=document.getElementById("liveVideo");
-			var c_width=c.width;
-			var c_height=c.height;
-			var cxt=c.getContext("2d");
-			//画布初始化结束
-			var circle = function(x,y,radius){
-				cxt.beginPath();
-				//(x,y)-圆心
-				//radius-半径
-				//0代表在x正半轴
-				//Math.PI*2代表旋转多少度
-				//flase表示顺时针方向转
-				cxt.arc(x,y,radius,0,Math.PI*2,false);
-				cxt.stroke();
-				cxt.fill();
-			};
-			//标注员工
-			var cygb = 95;
-			var cygb2 = 100;
-			refresh();
-			function refresh(){
-				cxt.clearRect(0,0,c_width,c_height);
-				cxt.strokeStyle = "Red";
-				cxt.fillStyle = "Red";
-//				for(var i=0;i<5;i=i+1){
-//					circle(Math.round(Math.random()*c_width),Math.round(Math.random()*c_height),3);
-//				}
-				cxt.strokeStyle = "Green";
-				cxt.fillStyle = "Green";
-//				for(var j=0;j<5;j=j+1){
-//					circle(Math.round(Math.random()*c_width),Math.round(Math.random()*c_height),3);
-//				}
-				circle(55,97,3);
-				circle(cygb,cygb2,3);
-				
-				if(cygb==85){
-					if(cygb2==80){
-						
-					}else{
-						cygb2=cygb2-10;
-					}
-				}else{
-					cygb=cygb-10;
-				}
-				circle(135,102,3);
-				circle(175,51,3);
-				circle(215,105,3);
-				circle(255,103,3);
-				setTimeout("refresh()", 2000);
-			}
-			//标注员工结束
-		</script>
+        <script>
+            var UPLOAD_IMAGE_SUCCESS = "1";
+            var websocket = null;
+            if('WebSocket' in window){
+                websocket = new WebSocket("ws://localhost:8080/websocket")
+            }else{
+                alert("当前浏览器不支持WebSocket，数据刷新可能不及时")
+            }
+            websocket.onerror = function () {
+                setMessageInnerHTML("WebSocket连接发生错误");
+            };
+            //连接成功建立的回调方法
+            websocket.onopen = function () {
+                setMessageInnerHTML("WebSocket连接成功");
+            }
+
+            //连接关闭的回调方法
+            websocket.onclose = function () {
+                setMessageInnerHTML("WebSocket连接关闭");
+            }
+            //监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
+            window.onbeforeunload = function () {
+                websocket.close();
+            }
+            //将消息显示在网页上
+            function setMessageInnerHTML(innerHTML) {
+                // document.getElementById('test').innerHTML += innerHTML + '<br/>';
+            }
+            //关闭WebSocket连接
+            function closeWebSocket() {
+                websocket.close();
+            }
+            //接收到消息的回调方法
+            websocket.onmessage = function (event) {
+                setMessageInnerHTML(event.data);
+                if(event.data==UPLOAD_IMAGE_SUCCESS){
+                    location.reload();
+                }
+            }
+        </script>
 		<!--Illegal Image Detail's JS-->
 		<script>
 			/*获得btn*/

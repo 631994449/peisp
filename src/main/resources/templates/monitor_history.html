@@ -1,6 +1,8 @@
 ﻿<!DOCTYPE html>
 <!--[if IE 9]>         <html class="ie9 no-focus"> <![endif]-->
 <!--[if gt IE 9]><!-->
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <html class="no-focus">
 <!--<![endif]-->
 
@@ -221,7 +223,7 @@
                         </div>
                         <div class="block-content">
                             <!-- Quick Settings Form -->
-                            <form class="form-bordered" action="index.html" method="post" onsubmit="return false;">
+                            <form class="form-bordered" action="/index.html" method="post" onsubmit="return false;">
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-xs-8">
@@ -295,7 +297,7 @@
                 <div class="sidebar-content">
                         <!-- Side Header -->
                         <div class="side-header side-content bg-white-op">
-                            <a class="h5 text-white" href="index.html"> 
+                            <a class="h5 text-white" href="/index.html">
 								<em class="fa fa-puzzle-piece text-primary"></em> 
 							<span class="h4 font-w600 sidebar-mini-hide">PEISP</span> 
 							</a>
@@ -306,10 +308,10 @@
                         <div class="side-content">
                             <ul class="nav-main">
 								<li>
-                                    <a href="index.html"><i class="si si-briefcase"></i><span class="sidebar-mini-hide">PEISP主页</span></a>
+                                    <a href="/index.html"><i class="si si-briefcase"></i><span class="sidebar-mini-hide">PEISP主页</span></a>
                                 </li>
 								<li>
-                                    <a href="dash_board.html"><i class="si si-bar-chart"></i><span class="sidebar-mini-hide">企业主页</span></a>
+                                    <a href="/dash_board.html"><i class="si si-bar-chart"></i><span class="sidebar-mini-hide">企业主页</span></a>
                                 </li>
 								<li >
                                     <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-camcorder"></i><span class="sidebar-mini-hide">实时监控</span></a>
@@ -318,7 +320,7 @@
                                             <a class="nav-submenu" data-toggle="nav-submenu" href="#">工厂A</a>
                                             <ul >
                                                 <li>
-                                                    <a href="CameraPage.html">车间a</a>
+                                                    <a href="/CameraPage">车间a</a>
                                                 </li>
                                                 <li>
                                                     <a href="#">车间b</a>
@@ -356,7 +358,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a class="nav-submenu" data-toggle="nav-submenu" href="worker_info.html"><i class="si si-grid"></i><span class="sidebar-mini-hide">员工列表</span></a>
+                                    <a class="nav-submenu" data-toggle="nav-submenu" href="/worker_info.html"><i class="si si-grid"></i><span class="sidebar-mini-hide">员工列表</span></a>
                                     <ul>
                                         <li>
                                             <a class="active" href="#">所有员工</a>
@@ -367,7 +369,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="helmet_info.html"><i class="si si-wrench"></i>
+                                    <a href="/helmet_info.html"><i class="si si-wrench"></i>
 										<span class="sidebar-mini-hide">安全帽列表</span></a>
                                 </li>
 								<li>
@@ -421,7 +423,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a tabindex="-1" href="base_pages_login.html">
+                                <a tabindex="-1" href="/base_pages_login.html">
                                     <i class="si si-logout pull-right"></i>Log out
                                 </a>
                             </li>
@@ -546,14 +548,32 @@
                             </div>
                             <div class="block-content">
                                 <ul class="list list-timeline pull-t">
+                                    <li>
+                                        <div class="list-timeline-time">Just Now</div>
+                                        <i class="fa fa-warning list-timeline-icon bg-flat"></i>
+                                        <div class="list-timeline-content">
+                                            <p class="font-w600">+ 5 新增违规:未知人员未佩戴安全帽</p>
+                                            <p class="font-s13"><span th:text="${#dates.format(illegals.get(0).time,'yyyy-MM-dd HH:mm:ss')}"></span></p>
+                                            <!-- Gallery (.js-gallery class is initialized in App() -> uiHelperMagnific()) -->
+                                            <!-- For more info and examples you can check out http://dimsemenov.com/plugins/magnific-popup/ -->
+                                            <div class="row items-push js-gallery">
+                                                <div class="col-sm-6 col-lg-4" th:each="illegal:${illegals}">
+                                                    <a class="img-link">
+                                                        <img class="img-responsive img-result" th:src="${illegal.imgDir}"
+                                                             alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
 
                                     <!-- Photo Notification -->
                                     <li>
-                                        <div class="list-timeline-time">4 hrs ago</div>
+                                        <div class="list-timeline-time">4 days ago</div>
                                         <i class="fa fa-warning list-timeline-icon bg-flat"></i>
                                         <div class="list-timeline-content">
                                             <p class="font-w600">+ 3 新增违规:未知人员未佩戴安全帽</p>
-                                            <p class="font-s13">2020-04-07 09:42:08</p>
+                                            <p class="font-s13">2020-07-20 09:42:08</p>
                                             <!-- Gallery (.js-gallery class is initialized in App() -> uiHelperMagnific()) -->
                                             <!-- For more info and examples you can check out http://dimsemenov.com/plugins/magnific-popup/ -->
                                             <div class="row items-push js-gallery">
@@ -589,7 +609,7 @@
                                         <i class="fa fa-warning list-timeline-icon bg-flat"></i>
                                         <div class="list-timeline-content">
                                             <p class="font-w600">+ 5 新增违规:未知人员未佩戴安全帽</p>
-                                            <p class="font-s13">2020-04-03 15:03:49</p>
+                                            <p class="font-s13">2020-07-18 15:03:49</p>
                                             <!-- Gallery (.js-gallery class is initialized in App() -> uiHelperMagnific()) -->
                                             <!-- For more info and examples you can check out http://dimsemenov.com/plugins/magnific-popup/ -->
                                             <div class="row items-push js-gallery">
@@ -674,68 +694,68 @@
                             </div>
                             <div class="block-content">
                                 <div class="row items-push js-gallery">
-                                    <div class="col-sm-6 col-lg-4">
-                                        <a class="img-link" href="/img/photos/photo2@2x.jpg">
-                                            <img class="img-responsive img-result" src="/img/helmet/1.png" alt="">
+                                    <div class="col-sm-6 col-lg-4" th:each="illegal:${illegals}">
+                                        <a class="img-link" href="">
+                                            <img class="img-responsive img-result" th:src="${illegal.imgDir}" alt="">
                                         </a>
-                                        <div class="text-center h5">1:01</div>
+                                        <div class="text-center h5"><span th:text="${#dates.format(illegals.get(0).time,'HH:mm')}"></span></div>
                                     </div>
                                     <div class="col-sm-6 col-lg-4">
-                                        <a class="img-link" href="/img/photos/photo2@2x.jpg">
+                                        <a class="img-link" href="">
                                             <img class="img-responsive img-result" src="/img/helmet/2.png" alt="">
                                         </a>
                                         <div class="text-center h5">1:01</div>
                                     </div>
                                     <div class="col-sm-6 col-lg-4">
-                                        <a class="img-link" href="/img/photos/photo2@2x.jpg">
+                                        <a class="img-link" href="">
                                             <img class="img-responsive img-result" src="/img/helmet/3.png" alt="">
                                         </a>
                                         <div class="text-center h5">1:01</div>
                                     </div>
                                     <div class="col-sm-6 col-lg-4">
-                                        <a class="img-link" href="/img/photos/photo2@2x.jpg">
+                                        <a class="img-link" href="">
                                             <img class="img-responsive img-result" src="/img/helmet/4.png" alt="">
                                         </a>
                                         <div class="text-center h5">1:01</div>
                                     </div>
                                     <div class="col-sm-6 col-lg-4">
-                                        <a class="img-link" href="/img/photos/photo2@2x.jpg">
+                                        <a class="img-link" href="">
                                             <img class="img-responsive img-result" src="/img/helmet/5.png" alt="">
                                         </a>
                                         <div class="text-center h5">1:01</div>
                                     </div>
                                     <div class="col-sm-6 col-lg-4">
-                                        <a class="img-link" href="/img/photos/photo2@2x.jpg">
+                                        <a class="img-link" href="">
                                             <img class="img-responsive img-result" src="/img/helmet/6.png" alt="">
                                         </a>
                                         <div class="text-center h5">1:00</div>
                                     </div>
                                     <div class="col-sm-6 col-lg-4">
-                                        <a class="img-link" href="/img/photos/photo2@2x.jpg">
+                                        <a class="img-link" href="">
                                             <img class="img-responsive img-result" src="/img/helmet/7.png" alt="">
                                         </a>
                                         <div class="text-center h5">1:00</div>
                                     </div>
                                     <div class="col-sm-6 col-lg-4">
-                                        <a class="img-link" href="/img/photos/photo2@2x.jpg">
+                                        <a class="img-link" href="">
                                             <img class="img-responsive img-result" src="/img/helmet/8.png" alt="">
                                         </a>
                                         <div class="text-center h5">1:00</div>
                                     </div>
                                     <div class="col-sm-6 col-lg-4">
-                                        <a class="img-link" href="/img/photos/photo2@2x.jpg">
+                                        <a class="img-link" href="">
                                             <img class="img-responsive img-result" src="/img/helmet/9.png" alt="">
                                         </a>
                                         <div class="text-center h5">1:00</div>
                                     </div>
                                     <div class="col-sm-6 col-lg-4">
-                                        <a class="img-link" href="/img/photos/photo2@2x.jpg">
+                                        <a class="img-link" href="">
                                             <img class="img-responsive img-result" src="/img/helmet/10.png" alt="">
                                         </a>
                                         <div class="text-center h5">1:00</div>
                                     </div>
                                     <div class="col-sm-6 col-lg-4">
-                                        <a class="img-link" href="/img/photos/photo2@2x.jpg">
+                                        <a class="img-link" href="">
                                             <img class="img-responsive img-result" src="/img/helmet/10.png" alt="">
                                         </a>
                                         <div class="text-center h5">1:00</div>
@@ -784,7 +804,7 @@
                     <div class="block-content">
                         <div class="row text-center">
                             <div class="col-xs-6">
-                                <a class="block block-rounded" href="index.html">
+                                <a class="block block-rounded" href="/index.html">
                                     <div class="block-content text-white bg-default">
                                         <i class="si si-speedometer fa-2x"></i>
                                         <div class="font-w600 push-15-t push-15">Backend</div>

@@ -5,6 +5,8 @@ import javax.annotation.Resource;
 import cn.edu.hziee.peisp.mapper.IllegalMapper;
 import cn.edu.hziee.peisp.entity.Illegal;
 
+import java.util.List;
+
 @Service
 public class IllegalService {
 
@@ -40,6 +42,8 @@ public class IllegalService {
     public int updateByPrimaryKey(Illegal record) {
         return illegalMapper.updateByPrimaryKey(record);
     }
+
+    public List<Illegal> getMax5Illegal(){return illegalMapper.getMax5Illegal();}
 
 }
 
