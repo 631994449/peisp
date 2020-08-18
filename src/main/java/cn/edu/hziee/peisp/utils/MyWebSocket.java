@@ -9,8 +9,6 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-import org.springframework.stereotype.Component;
-
 @ServerEndpoint(value = "/websocket")
 public class MyWebSocket {
     //与某个客户端的连接会话，需要通过它来给客户端发送数据
