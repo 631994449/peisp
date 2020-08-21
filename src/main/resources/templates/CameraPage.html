@@ -328,7 +328,20 @@
                                            height="720" data-setup="{}">
                                         <source src="rtmp://60.12.136.59:22121/live/" type="rtmp/flv">
                                     </video>
+                                    <div class="btn-group btn-group-justified">
+                                        <div class="btn-group">
+                                            <button class="btn btn-default" type="button" onClick="start()"><i class="fa fa-play" id="start"></i></button>
+                                        </div>
+                                        <div class="btn-group">
+                                            <button class="btn btn-default" type="button" id="right" onClick="goRight()"><i class="fa fa-arrow-right" id="arrow"></i></button>
+                                        </div>
+                                        <div class="btn-group">
+                                            <button class="btn btn-default" id="change" type="button" onClick="changeMode()">自动模式</button>
+                                        </div>
+
+                                    </div>
 								</div>
+
 							</div>
 							<!-- END Default Buttons -->
 						</div>
@@ -342,13 +355,14 @@
 								</div>
 								<div class="block-content">
                                     <!--运用第三方sdk-->
-                                    <iframe src="FMMapBasic.html" width="100%" height="310px" scrolling="no"></iframe>
+                                    <iframe src="FMMapBasic.html" width="100%" height="343px" scrolling="no"></iframe>
 								</div>
 							</div>
 							<!-- END Square Buttons -->
 						</div>
 						<!--END 2D Map-->
 					</div>
+
 					<!--Illegal Image-->
 					<div class="block">
 						<div class="block-header">
@@ -492,7 +506,7 @@
             var UPLOAD_IMAGE_SUCCESS = "1";
             var websocket = null;
             if('WebSocket' in window){
-                websocket = new WebSocket("ws://59.110.70.93:8080/websocket")
+                websocket = new WebSocket("ws://localhost:8080/websocket")
             }else{
                 alert("当前浏览器不支持WebSocket，数据刷新可能不及时")
             }
@@ -570,5 +584,55 @@
 				},interval)
 			}
 		</script>
+        <!--遥控器-->
+        <script>
+            var isStart = false;
+            var isAuto = false;
+            var goLeft = false;
+            function goRight(){
+                if(goLeft){
+                    document.getElementById("arrow").className="fa fa-arrow-right";
+                    sendMessage("a");
+                }else{
+                    document.getElementById("arrow").className="fa fa-arrow-left";
+                    sendMessage("b");
+                }
+                goLeft = !goLeft;
+            }
+            function start(){
+                if(isStart){
+                    document.getElementById("start").className="fa fa-play";
+                    sendMessage("d");
+                }else{
+                    document.getElementById("start").className="fa fa-pause";
+                    sendMessage("c");
+                }
+                isStart = !isStart;
+            }
+            function changeMode(){
+                var obj = document.getElementById("change");
+                if(isAuto){
+                    obj.innerHTML="自动模式";
+                    sendMessage("f");
+                }else{
+                    alert("切换至自动模式后，其余按钮将都失效！")
+                    obj.innerHTML="手动模式";
+                    sendMessage("e");
+                }
+                isAuto = !isAuto;
+            }
+            function sendMessage(s){
+                $.ajax({
+                    url: "sendMSG",
+                    data: s,
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    success: function(response){
+                        if(response.success){
+                        }
+                    }
+                })
+            }
+        </script>
     </body>
 </html>
