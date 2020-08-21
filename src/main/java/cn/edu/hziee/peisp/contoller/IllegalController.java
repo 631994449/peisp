@@ -31,6 +31,11 @@ public class IllegalController extends HttpServlet {
     public String cameraPage(Model model){
         List<Illegal> illegals = illegalService.getMax5Illegal();
         model.addAttribute("illegals",illegals);
+
+
+
+
+
         return "CameraPage";
     }
     @RequestMapping("/History")
