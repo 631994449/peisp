@@ -17,11 +17,17 @@ public class Base642ImgUtil {
             return null;
         }
         BASE64Decoder decoder = new BASE64Decoder();
-        String[] arr = base64Info.split("base64,");
+
         // 数据中：data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABI4AAAEsCAYAAAClh/jbAAA ...  在"base64,"之后的才是图片信息
         String picPath = filePath+ "/"+ UUID.randomUUID().toString() +".png";
         try {
-            byte[] buffer = decoder.decodeBuffer(arr[1]);
+            byte[] buffer;
+            if (!base64Info.contains("base64,")){
+                buffer = decoder.decodeBuffer(base64Info);
+            }else {
+                String[] arr = base64Info.split("base64,");
+                buffer = decoder.decodeBuffer(arr[1]);
+            }
             OutputStream os = new FileOutputStream(picPath);
             os.write(buffer);
             os.close();

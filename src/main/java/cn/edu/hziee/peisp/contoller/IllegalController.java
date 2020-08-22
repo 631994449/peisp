@@ -3,7 +3,6 @@ package cn.edu.hziee.peisp.contoller;
 import cn.edu.hziee.peisp.entity.Illegal;
 import cn.edu.hziee.peisp.service.IllegalService;
 import cn.edu.hziee.peisp.utils.FileUtil;
-import cn.edu.hziee.peisp.utils.ServerManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,12 +31,9 @@ public class IllegalController extends HttpServlet {
         List<Illegal> illegals = illegalService.getMax5Illegal();
         model.addAttribute("illegals",illegals);
 
-
-
-
-
         return "CameraPage";
     }
+
     @RequestMapping("/History")
     public String history(Model model){
         List<Illegal> illegals = illegalService.getMax5Illegal();
@@ -45,7 +41,7 @@ public class IllegalController extends HttpServlet {
         return "monitor_history";
     }
 
-    @RequestMapping("/uploadImg")
+    /*@RequestMapping("/uploadImg")
     public void uploadImg(@RequestParam("imgFile")MultipartFile multipartFile,
                           @RequestParam("workerName")String workerName,
                           @RequestParam("reason")String reason,
@@ -64,7 +60,7 @@ public class IllegalController extends HttpServlet {
         if (illegalService.insertSelective(illegal)==1){
             ServerManager.broadCast(UPLOAD_IMAGE_SUCCESS);
         }
-    }
+    }*/
 
     public String upLoadImg(MultipartFile multipartFile,String workerId,Timestamp time){
         String fileName;
