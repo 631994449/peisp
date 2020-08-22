@@ -15,6 +15,10 @@
  */
 package cn.edu.hziee.peisp.netty;
 
+import cn.edu.hziee.peisp.contoller.LiveController;
+import cn.edu.hziee.peisp.entity.Position;
+import cn.edu.hziee.peisp.service.WebSocketServer;
+import cn.edu.hziee.peisp.utils.PositionCounter;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
@@ -26,6 +30,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
+
+import java.io.IOException;
 
 /**
  * event handler to process receiving messages
@@ -41,7 +47,6 @@ public class SimpleChatServerHandler extends ChannelInboundHandlerAdapter{
 
     private static ChannelGroup channels = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
 
-    private double count = 0;
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
         channels.add(ctx.channel());
@@ -74,35 +79,28 @@ public class SimpleChatServerHandler extends ChannelInboundHandlerAdapter{
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         String stringMessage = (String) msg;
         System.out.println("msg:"+msg);
-        if (stringMessage.startsWith("A")){
-            //开始计算相应的位置
-            System.out.println(count++);
-        }else if(stringMessage.equals("a")){
-            //发送对应的电机控制信号
-            ctx.channel().writeAndFlush("a" );
-            System.out.println("电机正转");
-        }else if(stringMessage.equals("b")){
-            //发送对应的电机控制信号
-            ctx.channel().writeAndFlush("b" );
-            System.out.println("电机反转");
-        }else if(stringMessage.equals("c")){
-            //发送对应的电机控制信号
-            ctx.channel().writeAndFlush("c" );
-            System.out.println("电机启动");
-        }else if(stringMessage.equals("d")){
-            //发送对应的电机控制信号
-//            ctx.channel().writeAndFlush("d" );
-//            System.out.println("电机停止");
-        }else if(stringMessage.equals("e")){
-            //发送对应的电机控制信号
-            ctx.channel().writeAndFlush("e" );
-            System.out.println("电机开始自动巡航");
-        }else if(stringMessage.equals("f")){
-            //发送对应的电机控制信号
-            ctx.channel().writeAndFlush("f" );
-            System.out.println("电机手动巡航");
+        if (stringMessage.startsWith("_")){
+            //删去首个"_" 收到数据格式为[_距离_距离_距离]
+            String [] str = stringMessage.split("_");
+            double [] distance = new double[str.length-1];
+            //转换为double数组
+            for (int i = 1; i < str.length; i++) {
+                System.out.println(str[i]+"1");
+                distance[i-1] = Double.valueOf(str[i]);
+            }
+            Position ans = PositionCounter.count(distance[0],distance[1],distance[2]);
+            if (ans==null||ans.equals(null)){
+                //无法计算出正确位置
+                return;
+            }
+            System.out.println(ans.toString());
+            try {
+                WebSocketServer.SendMessage(ans.getX()+"&"+ans.getY(),"1");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            //传回给前端
         }else{
-
             return;
         }
     }

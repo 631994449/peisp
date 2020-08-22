@@ -59,9 +59,9 @@
             //必要，地图容器
             container: document.getElementById('fengMap'),
             //地图数据位置
-            // mapServerURL: 'data/' + fmapID,
+            // mapServerURL: './data/' + fmapID,
             //主题数据位置
-            mapThemeURL: 'data/theme',
+            mapThemeURL: './data/theme',
             //必要，地图应用名称，通过蜂鸟云后台创建
             appName: 'peisp',
             //必要，地图应用密钥，通过蜂鸟云后台获取
@@ -81,7 +81,8 @@
         map.on('loadComplete', function () {
             console.log('地图加载完成！');
             //显示按钮
-            // document.getElementById('btnsGroup').style.display = 'block';
+            document.getElementById('btnsGroup').style.display = 'block';
+            addMarkerFunc(this);
         });
     }
 
@@ -92,7 +93,7 @@
         if (addMarker) {
             //重置其他按钮选中状态
             resetBtnStatus();
-            obj.classList.add('active');
+            // obj.classList.add('active');
 
             //添加图片标注
             addImageMarker();
@@ -124,15 +125,15 @@
         var gpos = group.mapCoord;
         im = new fengmap.FMImageMarker({
             //标注x坐标点
-            x: gpos.x,
+            x: 13339391.6998,
             //标注y坐标点
-            y: gpos.y,
+            y: 3541343.8454,
             //设置图片路径
             url: 'img/fengmap/blueImageMarker.png',
             //设置图片显示尺寸
             size: 32,
             //标注高度，大于model的高度
-            height: 4
+            height: 0.2
         });
 
         /**
@@ -143,6 +144,23 @@
         layer.addMarker(im);
     }
 
+    /**
+     * 更改图片按钮事件
+     * */
+    function changeMarkerFunc(obj) {
+        if (changeMarker) {
+
+            //重置其他按钮选中状态
+            resetBtnStatus();
+            obj.classList.add('active');
+
+            //通过im.url属性修改Marker图片
+            im.url = 'img/fengmap/redImageMarker.png';
+
+            //修改是否可更改图片按钮状态
+            changeMarker = false;
+        }
+    }
 
     /**
      * 更新图片位置(动画)按钮事件
@@ -156,10 +174,9 @@
             obj.classList.add('active');
 
             im.moveTo({
-                x: im.x + 0.1,
-                y: im.y,
-                // y: im.y + 30,
-                time: 0.1,
+                x: im.x + 10,
+                y: im.y + 10,
+                time: 0.3,
                 callback: function () {
                     console.log("位置更新完毕");
                 },
@@ -171,6 +188,21 @@
 
             //停止imageMarker的移动
             //im.stopMoveTo();
+        }
+    }
+
+    /**
+     * 更新图片位置按钮事件
+     * */
+    function changePosFunc(obj) {
+        //marker已存在，设置marker的位置，setPosition ( x, y, gid, height )
+        if (!addMarker && im) {
+
+            //重置其他按钮选中状态
+            resetBtnStatus();
+            obj.classList.add('active');
+
+            im.setPosition(im.x + 10, im.y + 10, 1, 2);
         }
     }
 
@@ -204,6 +236,38 @@
                 btnDom.classList.remove('active');
             }
         }
+    }
+</script>
+<script>
+    var socket_location;
+    if (typeof (WebSocket) == "undefined") {
+        console.log("遗憾：您的浏览器不支持WebSocket");
+    } else {
+        console.log("恭喜：您的浏览器支持WebSocket");
+        socket_location = new WebSocket("ws://localhost:8080/ws");
+        //连接打开事件
+        socket_location.onopen = function() {
+            console.log("Socket 已打开");
+            socket_location.send("消息发送测试(From Client_location)");
+        };
+        //收到消息事件
+        socket_location.onmessage = function(msg) {
+            console.log(msg.data);
+
+        };
+        //连接关闭事件
+        socket_location.onclose = function() {
+            console.log("Socket已关闭");
+        };
+        //发生了错误事件
+        socket_location.onerror = function() {
+            alert("Socket发生了错误");
+        };
+
+        //窗口关闭时，关闭连接
+        window.unload=function() {
+            socket_location.close();
+        };
     }
 </script>
 </body>
