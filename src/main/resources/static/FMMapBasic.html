@@ -190,6 +190,20 @@
             //im.stopMoveTo();
         }
     }
+    function moveto(a,b) {
+        im.moveTo({
+            x:a,
+            y:b,
+            time:0.3,
+            callback: function () {
+                console.log("位置更新完毕");
+            },
+            //更新时的回调函数
+            update: function (currentXY) {
+                console.log("实时坐标：" + currentXY.x + "," + currentXY.y);
+            }
+        });
+    }
 
     /**
      * 更新图片位置按钮事件
@@ -253,7 +267,8 @@
         //收到消息事件
         socket_location.onmessage = function(msg) {
             console.log(msg.data);
-
+            var position = msg.data.toString().split("&");
+            moveto(position[0],position[1]);
         };
         //连接关闭事件
         socket_location.onclose = function() {
