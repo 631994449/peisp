@@ -1,10 +1,14 @@
 package cn.edu.hziee.peisp.contoller;
 
+import cn.edu.hziee.peisp.entity.Illegal;
 import cn.edu.hziee.peisp.model.Boxes;
 import cn.edu.hziee.peisp.model.Result;
+import cn.edu.hziee.peisp.service.IllegalService;
 import cn.edu.hziee.peisp.service.WebSocketServer;
 import cn.edu.hziee.peisp.utils.Base642ImgUtil;
 import cn.edu.hziee.peisp.utils.ResultUtil;
+import com.sun.corba.se.spi.activation.ServerManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,11 +16,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Controller
 public class LiveController {
+    @Autowired
+    IllegalService illegalService;
+
     static String FILE_SAVE_PATH="C:\\Users\\merce\\Desktop\\img";
+    static String ILLEGAL_REASON="未佩戴安全帽";
 
     @ResponseBody
     @PostMapping("/test")
@@ -26,16 +35,24 @@ public class LiveController {
         [[141.8607], [169.83778], [253.20903], [269.2096], [183.09348], [686.54987], [253.90582], [752.73315], [179.92352], [529.33276], [252.73679], [606.4354], [147.91011], [395.01926], [239.71536], [469.7528]]
         (top, left, bottom, right)识别框四点坐标
          */
-//        System.out.println(base64Info);
+
         System.out.println(boxes.getBase64Info());
-        Base642ImgUtil.decodeBase64(boxes.getBase64Info(),FILE_SAVE_PATH);
-//        return ResultUtil.success();
+        String imgDir=Base642ImgUtil.decodeBase64(boxes.getBase64Info(),FILE_SAVE_PATH);
+
+        Timestamp time = new Timestamp(System.currentTimeMillis());
+        Illegal illegal = new Illegal();
+        illegal.setTime(time);
+        illegal.setReason(ILLEGAL_REASON);
+        illegal.setImgDir(imgDir);
+        if (illegalService.insertSelective(illegal)==1){
+            sendOneMessage(imgDir,"0");
+        }
     }
 
     @ResponseBody
     @GetMapping("/test_send_img")
-    public void tttt(@RequestBody Boxes boxes) {
-        sendOneMessage("牛逼","0");
+    public void tttt() {
+        sendOneMessage("C:\\Users\\merce\\Desktop\\img\\027daf63-d001-4d10-bcb7-6d2c2add6d11.png","0");
 
 //        return "ok";
     }
