@@ -25,6 +25,42 @@
 <!-- 引入fengmap -->
 <script src="lib/fengmap.core.min.js"></script>
 <script>
+    var socket_location;
+    if (typeof (WebSocket) == "undefined") {
+        console.log("遗憾：您的浏览器不支持WebSocket");
+    } else {
+        console.log("恭喜：您的浏览器支持WebSocket");
+        socket_location = new WebSocket("ws://59.110.70.93:8080/ws");
+        //连接打开事件
+        socket_location.onopen = function() {
+            console.log("Socket 已打开");
+            socket_location.send("消息发送测试(From Client_location)");
+        };
+        //收到消息事件
+        socket_location.onmessage = function(msg) {
+            console.log(msg.data);
+            var positions = msg.data.toString().split("(");
+            var position = positions[0].split("&");
+            console.log(position[0].trim(),position[1].trim());
+            moveto(position[0].trim(),position[1].trim());
+
+        };
+        //连接关闭事件
+        socket_location.onclose = function() {
+            console.log("Socket已关闭");
+        };
+        //发生了错误事件
+        socket_location.onerror = function() {
+            alert("Socket发生了错误");
+        };
+
+        //窗口关闭时，关闭连接
+        window.unload=function() {
+            socket_location.close();
+        };
+    }
+</script>
+<script>
     //获取版本号,设置title
     document.title = '图片点标注V' + fengmap.VERSION;
 
@@ -191,6 +227,9 @@
         }
     }
     function moveto(a,b) {
+        if (im==null){
+            return;
+        }
         im.moveTo({
             x:a,
             y:b,
@@ -252,39 +291,7 @@
         }
     }
 </script>
-<script>
-    var socket_location;
-    if (typeof (WebSocket) == "undefined") {
-        console.log("遗憾：您的浏览器不支持WebSocket");
-    } else {
-        console.log("恭喜：您的浏览器支持WebSocket");
-        socket_location = new WebSocket("ws://localhost:8080/ws");
-        //连接打开事件
-        socket_location.onopen = function() {
-            console.log("Socket 已打开");
-            socket_location.send("消息发送测试(From Client_location)");
-        };
-        //收到消息事件
-        socket_location.onmessage = function(msg) {
-            console.log(msg.data);
-            var position = msg.data.toString().split("&");
-            moveto(position[0],position[1]);
-        };
-        //连接关闭事件
-        socket_location.onclose = function() {
-            console.log("Socket已关闭");
-        };
-        //发生了错误事件
-        socket_location.onerror = function() {
-            alert("Socket发生了错误");
-        };
 
-        //窗口关闭时，关闭连接
-        window.unload=function() {
-            socket_location.close();
-        };
-    }
-</script>
 </body>
 
 </html>
