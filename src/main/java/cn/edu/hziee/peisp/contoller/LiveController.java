@@ -24,7 +24,8 @@ public class LiveController {
     @Autowired
     IllegalService illegalService;
 
-    static String FILE_SAVE_PATH="C:\\Users\\merce\\Desktop\\img";
+//    static String FILE_SAVE_PATH="C:\\Users\\merce\\Desktop\\img";
+    static String FILE_SAVE_PATH="/uploadFile";
     static String ILLEGAL_REASON="未佩戴安全帽";
 
     @ResponseBody
@@ -36,15 +37,19 @@ public class LiveController {
         (top, left, bottom, right)识别框四点坐标
          */
 
+        //保存
         System.out.println(boxes.getBase64Info());
         String imgDir=Base642ImgUtil.decodeBase64(boxes.getBase64Info(),FILE_SAVE_PATH);
 
+        //固化
         Timestamp time = new Timestamp(System.currentTimeMillis());
         Illegal illegal = new Illegal();
         illegal.setTime(time);
         illegal.setReason(ILLEGAL_REASON);
         illegal.setImgDir(imgDir);
+
         if (illegalService.insertSelective(illegal)==1){
+            System.out.println("handleImg传图中：输出路径："+imgDir);
             sendOneMessage(imgDir,"0");
         }
     }
