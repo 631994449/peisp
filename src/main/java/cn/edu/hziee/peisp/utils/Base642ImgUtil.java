@@ -10,6 +10,8 @@ import java.io.OutputStream;
 import java.util.UUID;
 
 public class Base642ImgUtil {
+    private static final String FILE_PATH_PREFIX = "/root/tomcat";
+
     public static String decodeBase64(String base64Info, String filePath){
         base64Info = base64Info.replaceAll(" ", "+");
 
@@ -28,7 +30,7 @@ public class Base642ImgUtil {
                 String[] arr = base64Info.split("base64,");
                 buffer = decoder.decodeBuffer(arr[1]);
             }
-            OutputStream os = new FileOutputStream(picPath);
+            OutputStream os = new FileOutputStream(FILE_PATH_PREFIX+picPath);
             os.write(buffer);
             os.close();
         } catch (IOException e) {

@@ -14,13 +14,7 @@
 <div id="fengMap"></div>
 
 <!-- 按钮组 -->
-<div id="btnsGroup" class="btnsGroup">
-    <button onClick="addMarkerFunc(this)">添加图片标注</button>
-    <button onClick="changeMarkerFunc(this)">更换所用图片</button>
-    <button onClick="moveMarkerFunc(this)">更新图片位置（动画）</button>
-    <button onClick="changePosFunc(this)">更新图片位置</button>
-    <button onClick="deleteMarkerFunc(this)">删除图片标注</button>
-</div>
+
 
 <!-- 引入fengmap -->
 <script src="lib/fengmap.core.min.js"></script>
@@ -39,6 +33,10 @@
         //收到消息事件
         socket_location.onmessage = function(msg) {
             console.log(msg.data);
+            if (msg.data.substr(0,1)=="/"){
+                console.log("收到地图消息");
+                return;
+            }
             var positions = msg.data.toString().split("(");
             var position = positions[0].split("&");
             console.log(position[0].trim(),position[1].trim());
@@ -62,7 +60,7 @@
 </script>
 <script>
     //获取版本号,设置title
-    document.title = '图片点标注V' + fengmap.VERSION;
+    // document.title = '图片点标注V' + fengmap.VERSION;
 
     //定义全局map变量
     var map = null;
@@ -117,7 +115,7 @@
         map.on('loadComplete', function () {
             console.log('地图加载完成！');
             //显示按钮
-            document.getElementById('btnsGroup').style.display = 'block';
+            // document.getElementById('btnsGroup').style.display = 'block';
             addMarkerFunc(this);
         });
     }
@@ -184,18 +182,18 @@
      * 更改图片按钮事件
      * */
     function changeMarkerFunc(obj) {
-        if (changeMarker) {
-
-            //重置其他按钮选中状态
-            resetBtnStatus();
-            obj.classList.add('active');
-
-            //通过im.url属性修改Marker图片
-            im.url = 'img/fengmap/redImageMarker.png';
-
-            //修改是否可更改图片按钮状态
-            changeMarker = false;
-        }
+        // if (changeMarker) {
+        //
+        //     //重置其他按钮选中状态
+        //     resetBtnStatus();
+        //     obj.classList.add('active');
+        //
+        //     //通过im.url属性修改Marker图片
+        //     im.url = 'img/fengmap/redImageMarker.png';
+        //
+        //     //修改是否可更改图片按钮状态
+        //     changeMarker = false;
+        // }
     }
 
     /**
@@ -203,28 +201,28 @@
      * */
     function moveMarkerFunc(obj) {
         //marker已存在，将imageMarker移动到指定的位置
-        if (!addMarker && im) {
-
-            //重置其他按钮选中状态
-            resetBtnStatus();
-            obj.classList.add('active');
-
-            im.moveTo({
-                x: im.x + 10,
-                y: im.y + 10,
-                time: 0.3,
-                callback: function () {
-                    console.log("位置更新完毕");
-                },
-                //更新时的回调函数
-                update: function (currentXY) {
-                    console.log("实时坐标：" + currentXY.x + "," + currentXY.y);
-                }
-            });
-
-            //停止imageMarker的移动
-            //im.stopMoveTo();
-        }
+        // if (!addMarker && im) {
+        //
+        //     //重置其他按钮选中状态
+        //     resetBtnStatus();
+        //     obj.classList.add('active');
+        //
+        //     im.moveTo({
+        //         x: im.x + 10,
+        //         y: im.y + 10,
+        //         time: 0.3,
+        //         callback: function () {
+        //             console.log("位置更新完毕");
+        //         },
+        //         //更新时的回调函数
+        //         update: function (currentXY) {
+        //             console.log("实时坐标：" + currentXY.x + "," + currentXY.y);
+        //         }
+        //     });
+        //
+        //     //停止imageMarker的移动
+        //     //im.stopMoveTo();
+        // }
     }
     function moveto(a,b) {
         if (im==null){
@@ -249,14 +247,14 @@
      * */
     function changePosFunc(obj) {
         //marker已存在，设置marker的位置，setPosition ( x, y, gid, height )
-        if (!addMarker && im) {
-
-            //重置其他按钮选中状态
-            resetBtnStatus();
-            obj.classList.add('active');
-
-            im.setPosition(im.x + 10, im.y + 10, 1, 2);
-        }
+        // if (!addMarker && im) {
+        //
+        //     //重置其他按钮选中状态
+        //     resetBtnStatus();
+        //     obj.classList.add('active');
+        //
+        //     im.setPosition(im.x + 10, im.y + 10, 1, 2);
+        // }
     }
 
     /**
@@ -264,17 +262,17 @@
      * */
     function deleteMarkerFunc(obj) {
         //删除layer上所有Marker
-        if (layer) {
-            layer.removeAll();
-        }
-
-        //重置其他按钮选中状态
-        resetBtnStatus();
-        obj.classList.add('active');
-
-        //修改是否可添加/可更改图片按钮状态
-        addMarker = true;
-        changeMarker = false;
+        // if (layer) {
+        //     layer.removeAll();
+        // }
+        //
+        // //重置其他按钮选中状态
+        // resetBtnStatus();
+        // obj.classList.add('active');
+        //
+        // //修改是否可添加/可更改图片按钮状态
+        // addMarker = true;
+        // changeMarker = false;
     }
 
 
@@ -282,13 +280,13 @@
      * 移除其他按钮选中状态
      */
     function resetBtnStatus() {
-        var btnsDom = document.getElementById('btnsGroup').children;
-        for (var i = 0; i < btnsDom.length; i++) {
-            var btnDom = btnsDom[i];
-            if (btnDom.classList.contains('active')) {
-                btnDom.classList.remove('active');
-            }
-        }
+        // var btnsDom = document.getElementById('btnsGroup').children;
+        // for (var i = 0; i < btnsDom.length; i++) {
+        //     var btnDom = btnsDom[i];
+        //     if (btnDom.classList.contains('active')) {
+        //         btnDom.classList.remove('active');
+        //     }
+        // }
     }
 </script>
 

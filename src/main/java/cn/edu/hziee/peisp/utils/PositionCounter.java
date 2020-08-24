@@ -63,14 +63,19 @@ public class PositionCounter {
             ans.add(ans2);
         }
         if (ans.size()>1){
-            for (int i = 0; i < ans.size(); i++) {
-                double d = Math.sqrt(Math.pow(ans.get(i).getX() - positionC.getX(), 2) + Math.pow(ans.get(i).getY() - positionC.getY(), 2));
-                if (Math.abs(d-distanceC)>2){
-                    ans.remove(i);
-                    if (ans.size()==1){
-                        break;
-                    }
-                }
+//            for (int i = 0; i < ans.size(); i++) {
+//                double d = Math.sqrt(Math.pow(ans.get(i).getX() - positionC.getX(), 2) + Math.pow(ans.get(i).getY() - positionC.getY(), 2));
+//                if (Math.abs(d-distanceC)>2){
+//                    ans.remove(i);
+//                    if (ans.size()==1){
+//                        break;
+//                    }
+//                }
+//            }
+            double d1 = Math.sqrt(Math.pow(ans.get(0).getX() - positionC.getX(), 2) + Math.pow(ans.get(0).getY() - positionC.getY(), 2));
+            double d2 = Math.sqrt(Math.pow(ans.get(1).getX() - positionC.getX(), 2) + Math.pow(ans.get(1).getY() - positionC.getY(), 2));
+            if(d1>d2){
+                return ans.get(1);
             }
         }
         return ans.get(0);

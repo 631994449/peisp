@@ -50,7 +50,7 @@ public class LiveController {
 
         if (illegalService.insertSelective(illegal)==1){
             System.out.println("handleImg传图中：输出路径："+imgDir);
-            sendOneMessage(imgDir,"0");
+            sendAllMessage(imgDir);
         }
     }
 

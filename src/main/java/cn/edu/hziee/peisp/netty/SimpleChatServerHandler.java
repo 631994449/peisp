@@ -95,7 +95,7 @@ public class SimpleChatServerHandler extends ChannelInboundHandlerAdapter{
             }
             System.out.println(ans.toString());
             try {
-                WebSocketServer.SendMessage(ans.getX()+"&"+ans.getY(),"1");
+                WebSocketServer.BroadCastInfo(ans.getX()+"&"+ans.getY());
             } catch (IOException e) {
                 e.printStackTrace();
             }
