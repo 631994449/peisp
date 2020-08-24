@@ -6,6 +6,9 @@ public class Position {
     private double x;
     private double y;
 
+    private static double defaultX = 13339389.8514;
+    private static double defaultY = 3541340.7679;
+
     public Position(double x, double y) {
         this.x = x;
         this.y = y;
@@ -34,4 +37,8 @@ public class Position {
                 ", y=" + y +
                 '}';
     }
+    public Position addDefault(){
+        return new Position(this.getX()+defaultX,this.getY()+defaultY);
+    }
+
 }

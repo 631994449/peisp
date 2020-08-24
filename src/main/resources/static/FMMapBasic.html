@@ -25,6 +25,7 @@
     } else {
         console.log("恭喜：您的浏览器支持WebSocket");
         socket_location = new WebSocket("ws://59.110.70.93:8080/ws");
+        // socket_location = new WebSocket("ws://localhost:8080/ws");
         //连接打开事件
         socket_location.onopen = function() {
             console.log("Socket 已打开");

@@ -32,6 +32,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * event handler to process receiving messages
@@ -79,15 +80,21 @@ public class SimpleChatServerHandler extends ChannelInboundHandlerAdapter{
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         String stringMessage = (String) msg;
         System.out.println("msg:"+msg);
-        if (stringMessage.startsWith("_")){
+        if (stringMessage.startsWith("#")){
             //删去首个"_" 收到数据格式为[_距离_距离_距离]
-            String [] str = stringMessage.split("_");
-            double [] distance = new double[str.length-1];
-            //转换为double数组
+            String [] str = stringMessage.split("#");
+            //强度 要为int
+            //distance = math.pow(10,(ra-rA)/10/n)
+            //n为衰减因子，ra是传过来的值，rA是固定的单位距离值
+            int [] rssi = new int[3];
             for (int i = 1; i < str.length; i++) {
-                System.out.println(str[i]+"1");
-                distance[i-1] = Double.valueOf(str[i]);
+                //将信号强度字符串转换为int
+                rssi[i-1] = Integer.valueOf(str[i]);
+//                System.out.println(rssi[i-1]);
             }
+            double [] distance = PositionCounter.rssiToDistance(rssi);
+            //转换为double数组
+
             Position ans = PositionCounter.count(distance[0],distance[1],distance[2]);
             if (ans==null||ans.equals(null)){
                 //无法计算出正确位置

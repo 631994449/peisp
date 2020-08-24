@@ -6,12 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PositionCounter {
-    private static Position positionA = new Position(13339389.8514,3541340.7679);
-    private static Position positionB = new Position(13339392.8493,3541344.8252);
-    private static Position positionC = new Position(13339395.9126,3541340.7668);
+    private static Position positionA = new Position(0.0,0.0);
+    private static Position positionB = new Position(3.0,4.0);
+    private static Position positionC = new Position(6.0,0.0);
+    private static int rssiA = 37;
+    private static double n = 2.5;
     private static List<Position> ans= new ArrayList<>();
     public static Position count(double distanceA,double distanceB,double distanceC){
         //参考算法  https://blog.csdn.net/qq_17616169/article/details/72833869
+        ans.clear();
         double x1 = positionA.getX(),y1 = positionA.getY();
         double x2 = positionB.getX(),y2 = positionB.getY();
         double r1 = distanceA,r2 = distanceB,r3 = distanceC;
@@ -75,9 +78,18 @@ public class PositionCounter {
             double d1 = Math.sqrt(Math.pow(ans.get(0).getX() - positionC.getX(), 2) + Math.pow(ans.get(0).getY() - positionC.getY(), 2));
             double d2 = Math.sqrt(Math.pow(ans.get(1).getX() - positionC.getX(), 2) + Math.pow(ans.get(1).getY() - positionC.getY(), 2));
             if(d1>d2){
-                return ans.get(1);
+                return ans.get(1).addDefault();
             }
         }
-        return ans.get(0);
+
+        return ans.get(0).addDefault();
+    }
+    public static double[] rssiToDistance(int[] rssi){
+        double []ans = new double[3];
+        for (int i = 0; i < rssi.length; i++) {
+            ans[i] = Math.pow(10,(rssi[i]-rssiA)/10.0/n);
+            System.out.println(ans[i]);
+        }
+        return ans;
     }
 }
