@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Controller
@@ -47,11 +48,11 @@ public class LiveController {
         illegal.setTime(time);
         illegal.setReason(ILLEGAL_REASON);
         illegal.setImgDir(imgDir);
-        StringBuffer str = new StringBuffer();
-        str.append(time.getHours()).append(":").append(time.getMinutes()).append(":").append(time.getSeconds());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+        String str = dateFormat.format(time);
         if (illegalService.insertSelective(illegal)==1){
             System.out.println("handleImg传图中：输出路径："+imgDir);
-            sendAllMessage(imgDir+"&"+str.toString());
+            sendAllMessage(imgDir+"&"+str);
         }
     }
 
