@@ -373,7 +373,7 @@
                             <!--下面这个div应该要有onClick="show(this)"，暂时禁用-->
                             <div class="col-xs-6 col-sm-6 col-lg-2" th:each="illegal:${illegals}" th:id="${illegal.id}">
                                 <img th:src="${illegal.imgDir}" class="img-illegal"/>
-                                <div class="push-10-t font-w600 font-red"><span th:text="${illegal.workerId==null?'未识别':illegal.workerName}"></span> </div>
+                                <div class="push-10-t font-w600 font-red"><span th:text="${#dates.format(illegal.time,'HH:mm:ss')}"></span></div>
                             </div>
 							<div class="col-xs-6 col-sm-6 col-lg-2">
 								<div style="height: 60px"></div>
@@ -549,10 +549,11 @@
             }
             function reflashIMG(imgDir) {
                 console.log(imgDir);
+                var a = imgDir.split("&");
                 $('#img-container').children().eq(3).remove();
                 var img = "<div class='col-xs-6 col-sm-6 col-lg-2'>" +
-                    "<img src="+imgDir+" class='img-illegal'/>" +
-                    "<div class='push-10-t font-w600 font-red'><span text='未识别'></span> </div>" +
+                    "<img src="+a[0]+" class='img-illegal'/>" +
+                    "<div class='push-10-t font-w600 font-red'><span>"+a[1]+"</span> </div>" +
                     "</div>";
                 $('#img-container').prepend(img)
             }

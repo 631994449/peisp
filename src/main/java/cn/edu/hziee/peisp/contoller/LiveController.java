@@ -47,10 +47,11 @@ public class LiveController {
         illegal.setTime(time);
         illegal.setReason(ILLEGAL_REASON);
         illegal.setImgDir(imgDir);
-
+        StringBuffer str = new StringBuffer();
+        str.append(time.getHours()).append(":").append(time.getMinutes()).append(":").append(time.getSeconds());
         if (illegalService.insertSelective(illegal)==1){
             System.out.println("handleImg传图中：输出路径："+imgDir);
-            sendAllMessage(imgDir);
+            sendAllMessage(imgDir+"&"+str.toString());
         }
     }
 
